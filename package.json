@@ -14,7 +14,6 @@
         "prettier": "^3.3.2",
         "react": "^18",
         "react-dom": "^18",
-        "vite": "^5.3.1",
         "vite-plugin-next": "^0.0.1-beta.1",
         "zustand": "^4.5.2"
     },
