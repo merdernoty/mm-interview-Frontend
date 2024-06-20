@@ -1,8 +1,8 @@
 'use client'
 
-import { useCount } from '@/lib/store'
+import { useCount } from '@/lib/stores/store'
 
-export const Homepage = () => {
+export const Zustand = () => {
     const { count, incrementCount, decrementCount } = useCount(
         (state: any) => state,
     )
