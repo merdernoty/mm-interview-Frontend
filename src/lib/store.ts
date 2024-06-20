@@ -1,8 +1,7 @@
 import { create } from 'zustand'
 
-const useStore = create((set) => ({
-    bears: 0,
-    increasePopulation: () => set((state: any) => ({ bears: state.bears + 1 })),
-    removeAllBears: () => set({ bears: 0 }),
-    updateBears: (newBears: any) => set({ bears: newBears }),
+export const useCount = create((set) => ({
+    count: 1,
+    decrementCount: () => set((state: any) => ({ count: state.count - 1 })),
+    incrementCount: () => set((state: any) => ({ count: state.count + 1 })),
 }))
