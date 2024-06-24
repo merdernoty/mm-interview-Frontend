@@ -1,21 +1,11 @@
-import { Box, Container } from '@chakra-ui/react'
+import LoginFrom from '@/components/auth/login'
 import React from 'react'
 
 function page() {
     return (
-        <Container>
-            <div className="flex items-center justify-center h-screen">
-                <Box
-                    className="container my-auto mx-auto p-12"
-                    maxW="xl"
-                    bg='black'
-
-                    borderRadius="lg"
-                >
-                    This is the Box
-                </Box>
-            </div>
-        </Container>
+        <div>
+            <LoginFrom></LoginFrom>
+        </div>
     )
 }
 
