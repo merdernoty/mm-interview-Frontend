@@ -1,9 +1,9 @@
 'use client'
 
-import { useCounterStore } from '@/lib/providers/counter-store-provider'
+import { useCount } from '@/lib/stores/store'
 
-export const Homepage = () => {
-    const { count, incrementCount, decrementCount } = useCounterStore(
+export const Zustand = () => {
+    const { count, incrementCount, decrementCount } = useCount(
         (state: any) => state,
     )
 

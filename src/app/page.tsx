@@ -1,9 +1,9 @@
-import { Homepage } from '@/components/entity/homepage'
+import React from 'react'
 
-export default function Home() {
-    return (
-        <>
-            <Homepage></Homepage>
-        </>
-    )
+function page() {
+  return (
+    <div>page</div>
+  )
 }
+
+export default page
