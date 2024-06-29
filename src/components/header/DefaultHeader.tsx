@@ -1,13 +1,21 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import InputForm from '@/components/UI/Input/InputForm';
-import { Bell, PanelRightOpen, CircleUser, Star, History } from 'lucide-react'
+import { Bell, PanelRightOpen, CircleUser, Star, History } from 'lucide-react';
 
 const DefaultHeader = () => {
-    const [isAuthorized, setIsAuthorized] = useState(false);
-    const [isChatting, setIsChatting] = useState(true);
+    const [isAuthorized, setIsAuthorized] = useState(true);
+    const [isChatting, setIsChatting] = useState(false);
     const [inputText, setInputText] = useState('');
+
+    useEffect(() => {
+        // Проверяем, что код выполняется в клиентском контексте
+        if (typeof window !== 'undefined') {
+            const currentPath = window.location.pathname;
+            setIsChatting(currentPath.startsWith('/Chat'));
+        }
+    }, []);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputText(event.target.value);
@@ -22,27 +30,29 @@ const DefaultHeader = () => {
                     </Link>
                 </li>
 
-                {isChatting && isAuthorized ?
+                {isChatting && isAuthorized &&
                     <li className="ml-5">
-                    <Link href="/">
-                       <Star size={24} className="text-white" />
-                 </Link>
-                </li>: null}
+                        <Link href="/">
+                            <Star size={24} className="text-white" />
+                        </Link>
+                    </li>
+                }
             </ul>
-            <ul className="flex list-none m-0 p-0 ml-auto items-center">
 
+            <ul className="flex list-none m-0 p-0 ml-auto items-center">
                 <li className={`mr-5 ml-5 ${inputText.length > 0 ? 'input-focused' : ''}`}>
-                <InputForm onChange={handleInputChange} />
+                    <InputForm onChange={handleInputChange} />
                 </li>
 
                 {isAuthorized ? (
                     <>
-                        {isChatting ?
+                        {isChatting &&
                             <li className="mr-3">
                                 <Link href="/">
                                     <History size={24} className="text-white" />
                                 </Link>
-                            </li>:null}
+                            </li>
+                        }
                         <li className="mr-3">
                             <Link href="/">
                                 <Bell size={24} className="text-white" />
