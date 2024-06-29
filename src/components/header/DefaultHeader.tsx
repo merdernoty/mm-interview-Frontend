@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import InputForm from '@/components/UI/Input/InputForm';
-import { Bell, PanelRightOpen, CircleUser } from 'lucide-react';
+import { Bell, PanelRightOpen, CircleUser, Star, History } from 'lucide-react'
 
 const DefaultHeader = () => {
     const [isAuthorized, setIsAuthorized] = useState(false);
-    //const [isChatting, setIsChatting] = useState(false);
+    const [isChatting, setIsChatting] = useState(true);
     const [inputText, setInputText] = useState('');
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,19 +21,31 @@ const DefaultHeader = () => {
                         <PanelRightOpen size={24} className="text-white" />
                     </Link>
                 </li>
-            </ul>
 
+                {isChatting && isAuthorized ?
+                    <li className="ml-5">
+                    <Link href="/">
+                       <Star size={24} className="text-white" />
+                 </Link>
+                </li>: null}
+            </ul>
             <ul className="flex list-none m-0 p-0 ml-auto items-center">
 
                 <li className={`mr-5 ml-5 ${inputText.length > 0 ? 'input-focused' : ''}`}>
-                    <InputForm onChange={handleInputChange} />
+                <InputForm onChange={handleInputChange} />
                 </li>
 
                 {isAuthorized ? (
                     <>
+                        {isChatting ?
+                            <li className="mr-3">
+                                <Link href="/">
+                                    <History size={24} className="text-white" />
+                                </Link>
+                            </li>:null}
                         <li className="mr-3">
                             <Link href="/">
-                            <Bell size={24} className="text-white" />
+                                <Bell size={24} className="text-white" />
                             </Link>
                         </li>
                         <li>
