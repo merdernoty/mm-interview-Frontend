@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
-import InputForm from '@/components/UI/Input/InputForm';
+import InputForm from '@/components/ui/Input/InputForm';
 import { Bell, History, PanelRightOpen, Star, CircleUser } from 'lucide-react';
 
 const ChatHeader = () => {
