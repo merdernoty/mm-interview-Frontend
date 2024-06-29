@@ -7,6 +7,7 @@ interface InputFormProps {
 
 const InputForm: React.FC<InputFormProps> = ({ onChange }) => {
     const [isFocused, setIsFocused] = useState(false);
+    const [inputText, setInputText] = useState('');
 
     const handleFocus = () => {
         setIsFocused(true);
@@ -16,25 +17,40 @@ const InputForm: React.FC<InputFormProps> = ({ onChange }) => {
         setIsFocused(false);
     };
 
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setInputText(event.target.value);
+        onChange(event);
+    };
+
     return (
         <div className={`relative ${isFocused ? 'input-focused' : ''}`}>
-            <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
-                <Search size={20} className="text-gray-400" />
-            </div>
+
             <input
                 type="text"
                 id="search"
                 name="search"
-                className="pl-10 pr-2 w-full border-none rounded-md bg-[#323232] text-[#a8b0ba] text-sm leading-6 outline-none h-8 focus:bg-[#323232] focus:text-[#a8b0ba]"
+                className="pl-8 pr-2 w-full border-none rounded-md bg-[#323232] text-[#a8b0ba] text-sm leading-6 outline-none h-8 hover:scale-105 transition-transform duration-200"
                 placeholder="Search..."
-                onChange={onChange}
+                value={inputText}
+                onChange={handleInputChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
             />
+            {inputText === '' && (
+                <Search
+                    size={20}
+                    className="absolute left-1.5 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
+                />
+            )}
+
             <style jsx>{`
                 .input-focused {
-                    transform: scale(1.01); /* Увеличение масштаба при фокусе */
+                    transform: scale(1.01);
                     transition: transform 0.2s ease-in-out;
+                }
+
+                input:hover {
+                    transform: scale(1.05);
                 }
             `}</style>
         </div>
