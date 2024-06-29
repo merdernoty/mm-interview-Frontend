@@ -6,7 +6,6 @@ import { Bell, PanelLeftOpen, PanelLeftClose, CircleUser, Star, History } from '
 
 const DefaultHeader = () => {
     const [isAuthorized, setIsAuthorized] = useState(true);
-
     const [isAuthorizing, setIsAuthorizing] = useState(false);
     const [isChatting, setIsChatting] = useState(false);
     const [isSideBarOpened, setIsSideBarOpened] = useState(true);
@@ -32,29 +31,41 @@ const DefaultHeader = () => {
     return (
         <>
             {!isAuthorizing && (
-                <div className="fixed top-0 left-0 w-full flex justify-between items-center bg-mainBlack p-3">
+                <div className="fixed top-0 left-0 w-full flex justify-between items-center bg-mainBlack p-2.5">
                     <ul className="flex list-none m-0 p-0 mr-auto">
                         {isSideBarOpened ? (
                             <li className="ml-5">
-                                <PanelLeftOpen
-                                    size={24}
-                                    className="text-gray-200 cursor-pointer hover:text-white"
-                                    onClick={changeSidebar}
-                                />
+                                <div className="icon-container">
+                                    <PanelLeftOpen
+                                        size={24}
+                                        className="text-gray-200 cursor-pointer hover:text-white"
+                                        onClick={changeSidebar}
+                                    />
+                                    <div className="icon-hover"></div>
+                                </div>
                             </li>
                         ) : (
                             <li className="ml-5">
-                                <PanelLeftClose
-                                    size={24}
-                                    className="text-gray-200 cursor-pointer hover:text-white"
-                                    onClick={changeSidebar}
-                                />
+                                <div className="icon-container">
+                                    <PanelLeftClose
+                                        size={24}
+                                        className="text-gray-200 cursor-pointer hover:text-white"
+                                        onClick={changeSidebar}
+                                    />
+                                    <div className="icon-hover"></div>
+                                </div>
                             </li>
                         )}
 
                         {isChatting && isAuthorized && (
                             <li className="ml-5">
-                                <Star size={24} className="text-gray-200 cursor-pointer hover:text-white" />
+                                <div className="icon-container">
+                                    <Star
+                                        size={24}
+                                        className="text-gray-200 cursor-pointer hover:text-white"
+                                    />
+                                    <div className="icon-hover"></div>
+                                </div>
                             </li>
                         )}
                     </ul>
@@ -68,16 +79,34 @@ const DefaultHeader = () => {
                             <>
                                 {isChatting && (
                                     <li className="mr-3">
-                                        <History size={24} className="text-gray-200 cursor-pointer hover:text-white" />
+                                        <div className="icon-container">
+                                            <History
+                                                size={24}
+                                                className="text-gray-200 cursor-pointer hover:text-white"
+                                            />
+                                            <div className="icon-hover"></div>
+                                        </div>
                                     </li>
                                 )}
                                 <li className="mr-3">
-                                    <Bell size={24} className="text-gray-200 cursor-pointer hover:text-white" />
+                                    <div className="icon-container">
+                                        <Bell
+                                            size={24}
+                                            className="text-gray-200 cursor-pointer hover:text-white"
+                                        />
+                                        <div className="icon-hover"></div>
+                                    </div>
                                 </li>
                                 <li>
-                                    <Link href="/">
-                                        <CircleUser size={24} className="text-gray-200 cursor-pointer hover:text-white" />
-                                    </Link>
+                                    <div className="icon-container">
+                                        <Link href="/">
+                                            <CircleUser
+                                                size={24}
+                                                className="text-gray-200 cursor-pointer hover:text-white"
+                                            />
+                                        </Link>
+                                        <div className="icon-hover"></div>
+                                    </div>
                                 </li>
                             </>
                         ) : (
@@ -103,8 +132,28 @@ const DefaultHeader = () => {
                         }
 
                         /* Эффект hover для иконок */
-                        .text-white:hover {
-                            fill: #ccc; /* Замените цвет fill на свой */
+                        .icon-container {
+                            position: relative;
+                            display: inline-block;
+                            margin-left: 8px; /* Регулируйте отступ при необходимости */
+                            margin-top: 5px;
+                        }
+
+                        .icon-hover {
+                            position: absolute;
+                            top: -7px; 
+                            left: -7px; 
+                            width: 38px; 
+                            height: 38px; 
+                            background-color: #ccc; 
+                            border-radius: 8px; 
+                            opacity: 0; 
+                            transition: opacity 0.1s ease-in-out; 
+                            pointer-events: none;
+
+                        }
+                        .icon-container:hover .icon-hover {
+                            opacity: 0.2; 
                         }
                     `}</style>
                 </div>
