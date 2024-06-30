@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { axiosURL } from '../axios /axios'
+import { axiosURL } from '../axios/axios'
 
 const useChat = create((set) => ({
     data: null,

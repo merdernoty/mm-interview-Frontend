@@ -3,7 +3,7 @@ import Container from '@/components/ui/container/Container'
 
 export default function Home() {
     return (
-        <Container >
+        <Container>
             <Chat></Chat>
         </Container>
     )

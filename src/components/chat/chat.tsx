@@ -1,6 +1,5 @@
 'use client'
 import useChat from '@/lib/stores/chatStore'
-import { Button, Input } from '@chakra-ui/react'
 import { CornerDownLeft } from 'lucide-react'
 import React, { useState } from 'react'
 import Message from './message'
