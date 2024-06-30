@@ -8,23 +8,27 @@ function Chat() {
     const { data, isLoading, error, fetchMessage } = useChat(
         (state: any) => state,
     )
-    const [сontent, setСontent] = useState('')
+    const [content, setСontent] = useState('')
+    const [isSend, setIsSend] = useState('')
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
+        if (!content.trim()) return
         const messages = [
             {
                 role: 'user',
-                content: сontent,
+                content: content,
             },
         ]
+        setIsSend(content)
         fetchMessage(messages)
+        setСontent('')
     }
     return (
         <div>
             {isLoading && <div>Loading...</div>}
             {error && <div>Error: {error}</div>}
-            {data && <Message data={data}></Message>}
+            {data && <Message data={data} content={isSend}></Message>}
             <form
                 className="fixed bottom-0 left-0 w-full md:px-12 p-2  py-8 shadow-md "
                 onSubmit={handleSubmit}
@@ -34,7 +38,7 @@ function Chat() {
                         <input
                             className="rounded-full w-full border-none pl-4 bg-[#8B9AEE] text-white text-sm leading-6 outline-none h-9 placeholder-white "
                             type="text"
-                            value={сontent}
+                            value={content}
                             onChange={(e) => setСontent(e.target.value)}
                             placeholder="Enter message"
                         />
