@@ -2,7 +2,8 @@
 import React, { useState, useLayoutEffect } from 'react'
 import Link from 'next/link'
 import InputForm from '@/components/ui/Input/InputForm'
-import Container from '@/components/ui/container/Container'
+import { useAuthStore } from '@/lib/stores/authStore';
+import { usePathStore } from '@/lib/stores/pathStore';
 import {
     Bell,
     PanelLeftOpen,
@@ -13,20 +14,21 @@ import {
 } from 'lucide-react'
 
 const DefaultHeader = () => {
-    const [isAuthorized, setIsAuthorized] = useState(true)
-    const [isAuthorizing, setIsAuthorizing] = useState(false)
-    const [isChatting, setIsChatting] = useState(false)
+    const { isAuthorized, login, logout } = useAuthStore((state) => state);
+    const { updatePathState, isAuthorizing, isChatting,  } = usePathStore((state) => state);
+
+
     const [isSideBarOpened, setIsSideBarOpened] = useState(true)
     const [inputText, setInputText] = useState('')
+
     const [isIconsLoaded, setIsIconsLoaded] = useState(false);
     const iconSize:number = 25;
 
     useLayoutEffect(() => {
-        // Проверяем, что код выполняется в клиентском контексте
+
         if (typeof window !== 'undefined') {
             const currentPath = window.location.pathname
-            setIsChatting(currentPath.startsWith('/chat'))
-            setIsAuthorizing(currentPath.startsWith('/auth'))
+            updatePathState(currentPath);
             setIsIconsLoaded(true);
         }
     }, [])
@@ -88,8 +90,6 @@ const DefaultHeader = () => {
                     <li className={`absolute left-1/2 transform w-1/3 -translate-x-1/2 list-none ${inputText.length > 0 ? 'input-focused' : ''}`}>
                         <InputForm onChange={handleInputChange} />
                     </li>
-
-
                     {isIconsLoaded ? (
 
                         <ul className="flex list-none m-0 p-0 ml-auto items-center">
@@ -133,12 +133,14 @@ const DefaultHeader = () => {
                                 <>
                                     <li className="mr-4">
                                         <button
+                                            onClick={login}
                                             className="bg-[#3d3d3d] rounded-lg px-3 py-1 text-gray-300 transition-all duration-200 transform hover:scale-105 hover:bg-gradient-to-tr hover:text-indigo-50  hover:rounded-md hover:from-[#3d3d3d] hover:via-[#3d3d3d] hover:to-[#363636] whitespace-nowrap">
                                             Sign in
                                         </button>
                                     </li>
                                     <li>
                                         <button
+                                            onClick={login}
                                             className="bg-[#B7B9F7] rounded-lg px-3 py-1 text-[#2E2D2D] transition-all duration-200 transform hover:scale-105 hover:bg-gradient-to-tr hover:text-indigo-50  hover:rounded-md hover:from-[#9D9FEF] hover:via-[#A4A5FF] hover:to-[#8E90F4]  whitespace-nowrap">
                                             Sign up
                                         </button>
