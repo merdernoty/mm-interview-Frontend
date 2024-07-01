@@ -23,7 +23,7 @@ const DefaultHeader = () => {
     const [isSideBarOpened, setIsSideBarOpened] = useState(true)
     const [inputText, setInputText] = useState('')
 
-    const [isIconsLoaded, setIsIconsLoaded] = useState(false);
+    const [isIconsLoaded, setIsIconsLoaded] = useState(false );
 
     const {theme,questionId} = useParams();
     const iconSize:number = 25;
@@ -54,11 +54,11 @@ const DefaultHeader = () => {
         <>
             {!isAuthorizing && (
                 <div
-                    className="sticky top-0 left-0 w-full flex justify-between items-center bg-mainBlack px-10 py-3 border-b-[1px] border-[#323232]">
-                    <ul className="flex list-none m-0 p-0 mr-auto">
+                    className="sticky top-0 left-0 w-full flex justify-between items-center bg-mainBlack px-10 py-2.5 border-b-[1px] border-[#323232]">
+                    <ul className="flex list-none m-0 p-0 mr-auto items-center">
                         {isSideBarOpened ? (
                             <li>
-                                <button className="icon-container">
+                                <button className="icon-container  ">
                                     <PanelLeftOpen
                                         size={iconSize}
                                         className="text-gray-200 cursor-pointer hover:text-white"
@@ -93,9 +93,10 @@ const DefaultHeader = () => {
 
                                 <li className="ml-5">
                                     <span
-                                        className=" cursor-pointer mr-4 text-transform: capitalize opacity-70">{theme}</span> {/* Текст капитализированного начинается с */}
+                                        className=" cursor-pointer mr-4 text-transform: capitalize opacity-70">{theme}</span>
                                     <span className="opacity-70">/</span>
-                                    <span className=" cursor-pointer ml-4 text-transform: capitalize">{questionId}</span>
+                                    <span
+                                        className=" cursor-pointer ml-4 text-transform: capitalize">{questionId}</span>
                                 </li>
                             </>
 
@@ -172,6 +173,8 @@ const DefaultHeader = () => {
 
                         .icon-container {
                             position: relative;
+                            display:flex;
+                            align-items: center;
                         }
 
                         .icon-hover {
