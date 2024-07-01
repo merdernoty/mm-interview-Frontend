@@ -1,7 +1,8 @@
 'use client'
 import React, { useState, useLayoutEffect } from 'react'
-import Link from 'next/link'
 import InputForm from '@/components/ui/Input/InputForm'
+import { useParams } from 'next/navigation'
+import Link from 'next/link'
 import { useAuthStore } from '@/lib/stores/authStore';
 import { usePathStore } from '@/lib/stores/pathStore';
 import {
@@ -13,6 +14,7 @@ import {
     History,
 } from 'lucide-react'
 
+
 const DefaultHeader = () => {
     const { isAuthorized, login, logout } = useAuthStore((state) => state);
     const { updatePathState, isAuthorizing, isChatting,  } = usePathStore((state) => state);
@@ -22,6 +24,8 @@ const DefaultHeader = () => {
     const [inputText, setInputText] = useState('')
 
     const [isIconsLoaded, setIsIconsLoaded] = useState(false);
+
+    const {theme,questionId} = useParams();
     const iconSize:number = 25;
 
     useLayoutEffect(() => {
@@ -29,6 +33,7 @@ const DefaultHeader = () => {
         if (typeof window !== 'undefined') {
             const currentPath = window.location.pathname
             updatePathState(currentPath);
+
             setIsIconsLoaded(true);
         }
     }, [])
@@ -53,37 +58,47 @@ const DefaultHeader = () => {
                     <ul className="flex list-none m-0 p-0 mr-auto">
                         {isSideBarOpened ? (
                             <li>
-                                <div className="icon-container">
+                                <button className="icon-container">
                                     <PanelLeftOpen
                                         size={iconSize}
                                         className="text-gray-200 cursor-pointer hover:text-white"
                                         onClick={changeSidebar}
                                     />
                                     <div className="icon-hover"></div>
-                                </div>
+                                </button>
                             </li>
                         ) : (
                             <li>
-                                <div className="icon-container">
+                                <button className="icon-container">
                                     <PanelLeftClose
                                         size={iconSize}
                                         className="text-gray-200 cursor-pointer hover:text-white"
                                         onClick={changeSidebar}
                                     />
                                     <div className="icon-hover"></div>
-                                </div>
+                                </button>
                             </li>
                         )}
                         {isChatting && (
-                            <li className="ml-5">
-                                <div className="icon-container">
-                                    <Star
-                                        size={iconSize}
-                                        className="text-gray-200 cursor-pointer hover:text-white"
-                                    />
-                                    <div className="icon-hover"></div>
-                                </div>
-                            </li>
+                            <>
+                                <li className="ml-5">
+                                    <button className="icon-container">
+                                        <Star
+                                            size={iconSize}
+                                            className="text-gray-200 cursor-pointer hover:text-white"
+                                        />
+                                        <div className="icon-hover"></div>
+                                    </button>
+                                </li>
+
+                                <li className="ml-5">
+                                    <span
+                                        className=" cursor-pointer mr-4 text-transform: capitalize opacity-70">{theme}</span> {/* Текст капитализированного начинается с */}
+                                    <span className="opacity-70">/</span>
+                                    <span className=" cursor-pointer ml-4 text-transform: capitalize">{questionId}</span>
+                                </li>
+                            </>
+
                         )}
 
                     </ul>
@@ -93,30 +108,30 @@ const DefaultHeader = () => {
                     {isIconsLoaded ? (
 
                         <ul className="flex list-none m-0 p-0 ml-auto items-center">
-                            {isAuthorized ? (
+                        {isAuthorized ? (
                                 <>
                                     {isChatting && (
                                         <li className="mr-5">
-                                            <div className="icon-container">
+                                            <button className="icon-container">
                                                 <History
                                                     size={iconSize}
                                                     className="text-gray-200 cursor-pointer hover:text-white"
                                                 />
                                                 <div className="icon-hover"></div>
-                                            </div>
+                                            </button>
                                         </li>
                                     )}
                                     <li className="mr-5">
-                                        <div className="icon-container">
+                                        <button className="icon-container">
                                             <Bell
                                                 size={iconSize}
                                                 className="text-gray-200 cursor-pointer hover:text-white"
                                             />
                                             <div className="icon-hover"></div>
-                                        </div>
+                                        </button>
                                     </li>
                                     <li>
-                                        <div className="icon-container">
+                                        <button className="icon-container">
                                             <Link href="/">
                                                 <CircleUser
                                                     size={iconSize}
@@ -125,7 +140,7 @@ const DefaultHeader = () => {
                                             </Link>
                                             <div className="icon-hover"></div>
 
-                                        </div>
+                                        </button>
                                     </li>
 
                                 </>
