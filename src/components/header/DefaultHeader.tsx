@@ -1,7 +1,8 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import Link from 'next/link'
 import InputForm from '@/components/ui/Input/InputForm'
+import Container from '@/components/ui/container/Container'
 import {
     Bell,
     PanelLeftOpen,
@@ -17,15 +18,22 @@ const DefaultHeader = () => {
     const [isChatting, setIsChatting] = useState(false)
     const [isSideBarOpened, setIsSideBarOpened] = useState(true)
     const [inputText, setInputText] = useState('')
+    const [isIconsLoaded, setIsIconsLoaded] = useState(false);
+    const iconSize:number = 25;
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         // Проверяем, что код выполняется в клиентском контексте
         if (typeof window !== 'undefined') {
             const currentPath = window.location.pathname
             setIsChatting(currentPath.startsWith('/chat'))
             setIsAuthorizing(currentPath.startsWith('/auth'))
+            setIsIconsLoaded(true);
         }
     }, [])
+
+    const addToFavorite = ()=>{
+
+    }
 
     const changeSidebar = () => {
         setIsSideBarOpened(!isSideBarOpened)
@@ -38,13 +46,14 @@ const DefaultHeader = () => {
     return (
         <>
             {!isAuthorizing && (
-                <div className="sticky top-0 left-0 w-full flex justify-between items-center bg-mainBlack p-2.5 ">
+                <div
+                    className="sticky top-0 left-0 w-full flex justify-between items-center bg-mainBlack px-10 py-3 border-b-[1px] border-[#323232]">
                     <ul className="flex list-none m-0 p-0 mr-auto">
                         {isSideBarOpened ? (
-                            <li className="ml-5">
+                            <li>
                                 <div className="icon-container">
                                     <PanelLeftOpen
-                                        size={24}
+                                        size={iconSize}
                                         className="text-gray-200 cursor-pointer hover:text-white"
                                         onClick={changeSidebar}
                                     />
@@ -52,10 +61,10 @@ const DefaultHeader = () => {
                                 </div>
                             </li>
                         ) : (
-                            <li className="ml-5">
+                            <li>
                                 <div className="icon-container">
                                     <PanelLeftClose
-                                        size={24}
+                                        size={iconSize}
                                         className="text-gray-200 cursor-pointer hover:text-white"
                                         onClick={changeSidebar}
                                     />
@@ -63,88 +72,89 @@ const DefaultHeader = () => {
                                 </div>
                             </li>
                         )}
-
-                        {isChatting && isAuthorized && (
+                        {isChatting && (
                             <li className="ml-5">
                                 <div className="icon-container">
                                     <Star
-                                        size={24}
+                                        size={iconSize}
                                         className="text-gray-200 cursor-pointer hover:text-white"
                                     />
                                     <div className="icon-hover"></div>
                                 </div>
                             </li>
                         )}
+
                     </ul>
+                    <li className={`absolute left-1/2 transform w-1/3 -translate-x-1/2 list-none ${inputText.length > 0 ? 'input-focused' : ''}`}>
+                        <InputForm onChange={handleInputChange} />
+                    </li>
 
-                    <ul className="flex list-none m-0 p-0 ml-auto items-center">
-                        <li
-                            className={`mr-5 ml-5 ${inputText.length > 0 ? 'input-focused' : ''}`}
-                        >
-                            <InputForm onChange={handleInputChange} />
-                        </li>
 
-                        {isAuthorized ? (
-                            <>
-                                {isChatting && (
-                                    <li className="mr-3">
+                    {isIconsLoaded ? (
+
+                        <ul className="flex list-none m-0 p-0 ml-auto items-center">
+                            {isAuthorized ? (
+                                <>
+                                    {isChatting && (
+                                        <li className="mr-5">
+                                            <div className="icon-container">
+                                                <History
+                                                    size={iconSize}
+                                                    className="text-gray-200 cursor-pointer hover:text-white"
+                                                />
+                                                <div className="icon-hover"></div>
+                                            </div>
+                                        </li>
+                                    )}
+                                    <li className="mr-5">
                                         <div className="icon-container">
-                                            <History
-                                                size={24}
+                                            <Bell
+                                                size={iconSize}
                                                 className="text-gray-200 cursor-pointer hover:text-white"
                                             />
                                             <div className="icon-hover"></div>
                                         </div>
                                     </li>
-                                )}
-                                <li className="mr-3">
-                                    <div className="icon-container">
-                                        <Bell
-                                            size={24}
-                                            className="text-gray-200 cursor-pointer hover:text-white"
-                                        />
-                                        <div className="icon-hover"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="icon-container">
-                                        <Link href="/">
-                                            <CircleUser
-                                                size={24}
-                                                className="text-gray-200 cursor-pointer hover:text-white"
-                                            />
-                                        </Link>
-                                        <div className="icon-hover"></div>
-                                    </div>
-                                </li>
-                            </>
-                        ) : (
-                            <>
-                                <li className="mr-3">
-                                    <button className="bg-white rounded-lg px-3 py-1 text-[#3d3d3d] transition-all duration-300 transform hover:scale-105 hover:bg-gradient-to-tr hover:from-white hover:via-[#F3F4FC] hover:to-[#E1E2FB] w-auto whitespace-nowrap">
-                                        Sign up
-                                    </button>
-                                </li>
-                                <li>
-                                    <button className="bg-[#B7B9F7] rounded-lg px-3 py-1 text-[#2E2D2D] transition-all duration-300 transform hover:scale-105 hover:bg-gradient-to-tr hover:from-[#9D9FEF] hover:via-[#A4A5FF] hover:to-[#8E90F4] w-auto whitespace-nowrap">
-                                        Sign in
-                                    </button>
-                                </li>
-                            </>
-                        )}
-                    </ul>
+                                    <li>
+                                        <div className="icon-container">
+                                            <Link href="/">
+                                                <CircleUser
+                                                    size={iconSize}
+                                                    className="text-gray-200 cursor-pointer hover:text-white"
+                                                />
+                                            </Link>
+                                            <div className="icon-hover"></div>
 
+                                        </div>
+                                    </li>
+
+                                </>
+                            ) : (
+                                <>
+                                    <li className="mr-4">
+                                        <button
+                                            className="bg-[#3d3d3d] rounded-lg px-3 py-1 text-gray-300 transition-all duration-200 transform hover:scale-105 hover:bg-gradient-to-tr hover:text-indigo-50  hover:rounded-md hover:from-[#3d3d3d] hover:via-[#3d3d3d] hover:to-[#363636] whitespace-nowrap">
+                                            Sign in
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            className="bg-[#B7B9F7] rounded-lg px-3 py-1 text-[#2E2D2D] transition-all duration-200 transform hover:scale-105 hover:bg-gradient-to-tr hover:text-indigo-50  hover:rounded-md hover:from-[#9D9FEF] hover:via-[#A4A5FF] hover:to-[#8E90F4]  whitespace-nowrap">
+                                            Sign up
+                                        </button>
+                                    </li>
+                                </>
+                            )}
+                        </ul>
+                    ) : null}
                     <style jsx>{`
                         .input-focused {
-                            transform: scale(1.05);
+                            transform: scale(1.05) translate(-50%, -1%);
                             transition: transform 0.3s ease-in-out;
                         }
 
                         .icon-container {
                             position: relative;
-                            display: inline-block;
-                            margin-left: 8px; /* Регулируйте отступ при необходимости */
-                            margin-top: 5px;
                         }
 
                         .icon-hover {
@@ -159,6 +169,7 @@ const DefaultHeader = () => {
                             transition: opacity 0.1s ease-in-out;
                             pointer-events: none;
                         }
+
                         .icon-container:hover .icon-hover {
                             opacity: 0.2;
                         }
