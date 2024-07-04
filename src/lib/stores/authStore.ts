@@ -1,4 +1,5 @@
 import create from 'zustand';
+import useChat from '@/lib/stores/chatStore'
 
 interface AuthState {
     isAuthorized: boolean;
@@ -6,9 +7,10 @@ interface AuthState {
     logout: () => void;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
+export const useAuth = create<AuthState>((set) => ({
     isAuthorized: false,
     login: () => set({ isAuthorized: true }),
 
     logout: () => set({ isAuthorized: false }),
 }));
+export default useAuth;

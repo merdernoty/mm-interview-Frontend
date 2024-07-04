@@ -23,13 +23,13 @@ const InputForm: React.FC<InputFormProps> = ({ onChange }) => {
     };
 
     return (
-        <div className={`relative ${isFocused ? 'input-focused' : ''}`}>
+        <>
 
             <input
                 type="text"
                 id="search"
                 name="search"
-                className="pl-8 pr-2 w-full border-none rounded-md bg-[#323232] text-[#a8b0ba] text-sm leading-6 outline-none h-8 hover:scale-105 transition-transform duration-200"
+                className={`pl-8 pr-2 w-full border-none rounded-md bg-[#323232] text-[#a8b0ba] text-sm leading-6 outline-none h-8 hover:scale-105 transition-transform duration-200 ${isFocused ? 'transform scale-105' : ''}`}
                 placeholder="Search for questions and themes"
                 value={inputText}
                 onChange={handleInputChange}
@@ -45,7 +45,7 @@ const InputForm: React.FC<InputFormProps> = ({ onChange }) => {
 
                 input::placeholder {
                     text-align: left;
-                    padding-right: 10px;
+
                     opacity: 60%;
                 }
 
@@ -53,7 +53,7 @@ const InputForm: React.FC<InputFormProps> = ({ onChange }) => {
                     transform: scale(1.05);
                 }
             `}</style>
-        </div>
+        </>
     );
 };
 

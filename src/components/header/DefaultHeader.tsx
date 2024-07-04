@@ -3,8 +3,10 @@ import React, { useState, useLayoutEffect } from 'react'
 import InputForm from '@/components/ui/Input/InputForm'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { useAuthStore } from '@/lib/stores/authStore';
-import { usePathStore } from '@/lib/stores/pathStore';
+import  useAuthStore  from '@/lib/stores/authStore';
+import  usePathStore  from '@/lib/stores/pathStore';
+import useSidebar from '@/lib/stores/sidebarStore'
+
 import {
     Bell,
     PanelLeftOpen,
@@ -18,9 +20,9 @@ import {
 const DefaultHeader = () => {
     const { isAuthorized, login, logout } = useAuthStore((state) => state);
     const { updatePathState, isAuthorizing, isChatting,  } = usePathStore((state) => state);
+    const {isSideBarOpened,toggleSidebar} = useSidebar((state) => state);
 
 
-    const [isSideBarOpened, setIsSideBarOpened] = useState(true)
     const [inputText, setInputText] = useState('')
 
     const [isIconsLoaded, setIsIconsLoaded] = useState(false );
@@ -42,9 +44,7 @@ const DefaultHeader = () => {
 
     }
 
-    const changeSidebar = () => {
-        setIsSideBarOpened(!isSideBarOpened)
-    }
+
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputText(event.target.value)
@@ -55,14 +55,18 @@ const DefaultHeader = () => {
             {!isAuthorizing && (
                 <div
                     className="sticky top-0 left-0 w-full flex justify-between items-center bg-mainBlack px-10 py-2.5 border-b-[1px] border-[#323232]">
-                    <ul className="flex list-none m-0 p-0 mr-auto items-center">
+                    <ul
+                        className={`flex list-none m-0 p-0 mr-auto items-center transition-all duration-300 ${
+                            isSideBarOpened ? 'ml-[12%]' : 'ml-0'
+                        }`}
+                    >
                         {isSideBarOpened ? (
                             <li>
                                 <button className="icon-container  ">
-                                    <PanelLeftOpen
+                                    <PanelLeftClose
                                         size={iconSize}
                                         className="text-gray-200 cursor-pointer hover:text-white"
-                                        onClick={changeSidebar}
+                                        onClick={toggleSidebar}
                                     />
                                     <div className="icon-hover"></div>
                                 </button>
@@ -70,10 +74,10 @@ const DefaultHeader = () => {
                         ) : (
                             <li>
                                 <button className="icon-container">
-                                    <PanelLeftClose
+                                    <PanelLeftOpen
                                         size={iconSize}
                                         className="text-gray-200 cursor-pointer hover:text-white"
-                                        onClick={changeSidebar}
+                                        onClick={toggleSidebar}
                                     />
                                     <div className="icon-hover"></div>
                                 </button>
@@ -104,7 +108,7 @@ const DefaultHeader = () => {
 
                     </ul>
                     <li className={`absolute left-1/2 transform w-1/3 -translate-x-1/2 list-none ${inputText.length > 0 ? 'input-focused' : ''}`}>
-                        <InputForm onChange={handleInputChange} />
+                    <InputForm onChange={handleInputChange} />
                     </li>
                     {isIconsLoaded ? (
 

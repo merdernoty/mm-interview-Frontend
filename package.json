@@ -23,7 +23,7 @@
         "react-dom": "^18",
         "react-router-dom": "^6.24.0",
         "vite-plugin-next": "^0.0.1-beta.1",
-        "zustand": "^4.5.2"
+        "zustand": "^4.5.4"
     },
     "devDependencies": {
         "@types/node": "^20",
