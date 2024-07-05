@@ -50,11 +50,9 @@ const SimpleHeader = () => {
         <header
             className="sticky top-0 left-0 flex justify-between items-center p-4 bg-mainBlack text-white border-b-[1px] border-[#323232] px-9 py-2.5">
             <div
-                className={`"flex items-center w-1/5 transition-all duration-300 ${isSideBarOpened ? 'ml-[10%]' : 'ml-0'}`}>
+                className={`"flex items-center w-1/5 transition-all duration-300 ${isSideBarOpened ? 'ml-[250px]' : 'ml-0'}`}>
                 <ul
-                    className={`flex list-none m-0 p-0 mr-auto items-center transition-all duration-300 ${
-                        isSideBarOpened ? 'ml-[10%]' : 'ml-0'
-                    }`}
+                    className={`flex list-none m-0 p-0 mr-auto items-center transition-all duration-300 `}
                 >
 
                     <li className="ml-5 relative">
