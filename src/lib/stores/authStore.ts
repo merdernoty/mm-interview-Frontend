@@ -1,5 +1,5 @@
 import create from 'zustand';
-import useChat from '@/lib/stores/chatStore'
+
 
 interface AuthState {
     isAuthorized: boolean;
