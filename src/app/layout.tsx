@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
-import DefaultHeader from '@/components/header/DefaultHeader'
-import ChatHeader from '@/components/header/ChatHeader'
+import SimpleHeader from '@/components/header/SimpleHeader'
+import SideBar from '@/components/sidebar/SideBar'
+
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +24,8 @@ export default function RootLayout({
         <html lang="en">
             <body className={ inter.className}>
                 <Providers>
-                    <DefaultHeader></DefaultHeader>
+                    <SideBar></SideBar>
+                    <SimpleHeader></SimpleHeader>
                     {children}
                 </Providers>
             </body>
