@@ -9,6 +9,7 @@ const config: Config = {
         extend: {
             colors: {
                 mainBlack: '#1c1c1c',
+                blackUI: '#272727'
             },
             fontFamily: {
                 body: [
