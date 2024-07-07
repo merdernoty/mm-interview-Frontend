@@ -1,37 +1,44 @@
 'use client'
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import InputForm from '@/components/UI/Input/InputForm';
-import { Bell, PanelLeftOpen, PanelLeftClose, CircleUser, Star, History } from 'lucide-react';
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import InputForm from '@/components/ui/Input/InputForm'
+import {
+    Bell,
+    PanelLeftOpen,
+    PanelLeftClose,
+    CircleUser,
+    Star,
+    History,
+} from 'lucide-react'
 
 const DefaultHeader = () => {
-    const [isAuthorized, setIsAuthorized] = useState(true);
-    const [isAuthorizing, setIsAuthorizing] = useState(false);
-    const [isChatting, setIsChatting] = useState(false);
-    const [isSideBarOpened, setIsSideBarOpened] = useState(true);
-    const [inputText, setInputText] = useState('');
+    const [isAuthorized, setIsAuthorized] = useState(true)
+    const [isAuthorizing, setIsAuthorizing] = useState(false)
+    const [isChatting, setIsChatting] = useState(false)
+    const [isSideBarOpened, setIsSideBarOpened] = useState(true)
+    const [inputText, setInputText] = useState('')
 
     useEffect(() => {
         // Проверяем, что код выполняется в клиентском контексте
         if (typeof window !== 'undefined') {
-            const currentPath = window.location.pathname;
-            setIsChatting(currentPath.startsWith('/Chat'));
-            setIsAuthorizing(currentPath.startsWith('/auth'));
+            const currentPath = window.location.pathname
+            setIsChatting(currentPath.startsWith('/chat'))
+            setIsAuthorizing(currentPath.startsWith('/auth'))
         }
-    }, []);
+    }, [])
 
     const changeSidebar = () => {
-        setIsSideBarOpened(!isSideBarOpened);
-    };
+        setIsSideBarOpened(!isSideBarOpened)
+    }
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputText(event.target.value);
-    };
+        setInputText(event.target.value)
+    }
 
     return (
         <>
             {!isAuthorizing && (
-                <div className="fixed top-0 left-0 w-full flex justify-between items-center bg-mainBlack p-2.5">
+                <div className="sticky top-0 left-0 w-full flex justify-between items-center bg-mainBlack p-2.5 ">
                     <ul className="flex list-none m-0 p-0 mr-auto">
                         {isSideBarOpened ? (
                             <li className="ml-5">
@@ -71,7 +78,9 @@ const DefaultHeader = () => {
                     </ul>
 
                     <ul className="flex list-none m-0 p-0 ml-auto items-center">
-                        <li className={`mr-5 ml-5 ${inputText.length > 0 ? 'input-focused' : ''}`}>
+                        <li
+                            className={`mr-5 ml-5 ${inputText.length > 0 ? 'input-focused' : ''}`}
+                        >
                             <InputForm onChange={handleInputChange} />
                         </li>
 
@@ -131,7 +140,6 @@ const DefaultHeader = () => {
                             transition: transform 0.3s ease-in-out;
                         }
 
-                        /* Эффект hover для иконок */
                         .icon-container {
                             position: relative;
                             display: inline-block;
@@ -141,25 +149,24 @@ const DefaultHeader = () => {
 
                         .icon-hover {
                             position: absolute;
-                            top: -7px; 
-                            left: -7px; 
-                            width: 38px; 
-                            height: 38px; 
-                            background-color: #ccc; 
-                            border-radius: 8px; 
-                            opacity: 0; 
-                            transition: opacity 0.1s ease-in-out; 
+                            top: -7px;
+                            left: -7px;
+                            width: 38px;
+                            height: 38px;
+                            background-color: #ccc;
+                            border-radius: 8px;
+                            opacity: 0;
+                            transition: opacity 0.1s ease-in-out;
                             pointer-events: none;
-
                         }
                         .icon-container:hover .icon-hover {
-                            opacity: 0.2; 
+                            opacity: 0.2;
                         }
                     `}</style>
                 </div>
             )}
         </>
-    );
-};
+    )
+}
 
-export default DefaultHeader;
+export default DefaultHeader

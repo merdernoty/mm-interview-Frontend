@@ -1,25 +1,10 @@
-
+import Chat from '@/components/chat/chat'
+import Container from '@/components/ui/container/Container'
 
 export default function Home() {
     return (
-        <div>
-            123
-            <div>
-                123
-            </div>
-            <div>
-                123
-            </div>
-            <div>
-                123
-            </div>
-            <div>
-                123
-            </div>
-            <div>
-                123
-            </div>
-        </div>
-
+        <Container>
+            <Chat></Chat>
+        </Container>
     )
 }
