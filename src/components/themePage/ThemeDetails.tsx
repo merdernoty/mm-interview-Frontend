@@ -3,16 +3,14 @@ import { useParams } from 'next/navigation';
 import useThemeData from '@/lib/stores/themeDataStore';
 import Subtheme from './Subtheme';
 import {Trophy,Database,Leaf}  from 'lucide-react';
+
 const ThemeDetails = () => {
-    const { data, fetchData } = useThemeData();
-    const { themeId } = useParams<{ themeId?: string }>();
+    const { data, fetchThemeData } = useThemeData();
+    const { themeTitle } = useParams<{ themeTitle: string }>();
 
     useEffect(() => {
-        const id = typeof themeId === 'string' ? parseInt(themeId, 10) : undefined;
-        if (id !== undefined) {
-            fetchData(id);
-        }
-    }, [themeId]);
+        fetchThemeData(themeTitle);
+    }, []);
 
     return (
         <>
@@ -20,6 +18,7 @@ const ThemeDetails = () => {
                 <>
                     <h1 className="text-2xl font-bold mb-4">{data.title} </h1>
                     <div className="flex">
+
                         <div className="flex-grow mr-8">
                             {data.subthemes.map(subtheme => (
                                 <Subtheme key={subtheme.id} subtheme={subtheme} />

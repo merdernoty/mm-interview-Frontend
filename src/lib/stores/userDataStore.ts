@@ -1,42 +1,35 @@
 import { create } from 'zustand';
 import { axiosURL } from '../axios/axios';
 
-// Интерфейсы для данных
+
 interface Question {
     id: number;
     question: string;
-    answers: string[];
 }
 
-interface Subtheme {
+interface User {
     id: number;
-    title: string;
-    questions: Question[];
+    username: string;
+    email: string;
+    favoriteQuestions:Question[];
 }
 
-interface Theme {
-    id: number;
-    title: string;
-    description: string;
-    subthemes: Subtheme[];
-}
-
-interface ThemeData {
-    data: Theme | null;
+interface UserData {
+    data: User | null;
     isLoading: boolean;
     error: string | null;
-    fetchThemeData: (themeTitle: string) => Promise<void>;
+    fetchUserData: (userId: number) => Promise<void>;
 }
 
-const useThemeData = create<ThemeData>((set) => ({
+const useUserData = create<UserData>((set) => ({
     data: null,
     isLoading: false,
     error: null,
 
-    fetchThemeData: async (themeTitle: string) => {
+    fetchUserData: async (userId: number) => {
         set({ isLoading: true, error: null });
         try {
-            const url = `/themes/${themeTitle}`;
+            const url = `/users/${userId}`;
             const res = await axiosURL.get(url);
             set({ data: res.data, isLoading: false });
         } catch (error) {
@@ -46,4 +39,4 @@ const useThemeData = create<ThemeData>((set) => ({
     },
 }));
 
-export default useThemeData;
+export default useUserData;
