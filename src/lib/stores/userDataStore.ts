@@ -6,12 +6,22 @@ interface Question {
     id: number;
     question: string;
 }
-
+interface userInfo{
+    favoriteQuestions: Question[];
+    completedQuestions: Question[];
+    rewards: Reward[];
+}
+interface Reward {
+    id: number;
+    image: string;
+    title: string;
+    description: string;
+}
 interface User {
     id: number;
     username: string;
     email: string;
-    favoriteQuestions:Question[];
+    info:userInfo;
 }
 
 interface UserData {

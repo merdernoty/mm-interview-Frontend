@@ -14,11 +14,19 @@ interface Subtheme {
     questions: Question[];
 }
 
+interface Award {
+    id: number;
+    title: string;
+    image: string;
+    description: string;
+}
+
 interface Theme {
     id: number;
     title: string;
     description: string;
     subthemes: Subtheme[];
+    award:Award;
 }
 
 interface ThemeData {

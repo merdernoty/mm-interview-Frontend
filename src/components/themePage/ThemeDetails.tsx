@@ -34,7 +34,7 @@ const ThemeDetails = () => {
                                 </li>
                                 <li className="text-xl font-semibold mt-32 ">
                                     <h2 className="text-xl font-semibold mb-2 ">Award</h2>
-                                    <Trophy size={40}/>
+                                    {data.award.image}
                                 </li>
                                 <li className="mt-20">
                                     <h2 className="text-xl font-semibold">Related</h2>

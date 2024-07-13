@@ -32,10 +32,30 @@ const Profile = () => {
                         <h2 className="text-lg font-bold">почта:</h2>
                         <p>{data.email}</p>
                     </div>
-                    {data.favoriteQuestions && (
-                        data.favoriteQuestions.map((question) => (
+                    {data.info.favoriteQuestions && (
+                        data.info.favoriteQuestions.map((question) => (
                             <div key={question.id} className="w-64 h-64 bg-[#2C2C2C] rounded-lg p-4 text-center">
                                 <h2 className="text-lg font-bold">любимые вопросы:</h2>
+                                <p>{question.question}</p>
+                            </div>
+                        ))
+                    )}
+
+                    {data.info.rewards && (
+                        data.info.rewards.map((question) => (
+                            <div key={question.id} className="w-64 h-64 bg-[#2C2C2C] rounded-lg p-4 text-center">
+                                <h2 className="text-lg font-bold">награда:</h2>
+                                <p>{question.title}</p>
+                                <p>{question.description}</p>
+
+                            </div>
+                        ))
+                    )}
+
+                    {data.info.completedQuestions && (
+                        data.info.completedQuestions.map((question) => (
+                            <div key={question.id} className="w-64 h-64 bg-[#2C2C2C] rounded-lg p-4 text-center">
+                                <h2 className="text-lg font-bold">награды:</h2>
                                 <p>{question.question}</p>
                             </div>
                         ))
@@ -45,7 +65,7 @@ const Profile = () => {
                 <p>Loading...</p>
             )}
         </div>
-    );
+    )
 };
 
 export default Profile;
