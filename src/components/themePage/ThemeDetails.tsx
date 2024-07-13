@@ -43,6 +43,7 @@ const ThemeDetails = () => {
                                         {data.relatedThemes.map((theme, index) => (
                                             <li key={index} className="flex items-center">
                                                 {theme.title}
+                                                <p>123</p>
                                             </li>
                                         ))}
 
