@@ -36,17 +36,16 @@ const ThemeDetails = () => {
                                     <h2 className="text-xl font-semibold mb-2 ">Award</h2>
                                     {data.award.image}
                                 </li>
+
                                 <li className="mt-20">
                                     <h2 className="text-xl font-semibold">Related</h2>
                                     <ul className="mt-2 space-y-2">
-                                        <li className="flex items-center">
-                                            <Database size={25} className="mr-2" />
-                                            <p className="text-lg">database</p>
-                                        </li>
-                                        <li className="flex items-center">
-                                            <Leaf size={25} className="mr-2" />
-                                            <p className="text-lg">spring</p>
-                                        </li>
+                                        {data.relatedThemes.map((theme, index) => (
+                                            <li key={index} className="flex items-center">
+                                                {theme.title}
+                                            </li>
+                                        ))}
+
                                     </ul>
                                 </li>
                             </ul>

@@ -21,12 +21,18 @@ interface Award {
     description: string;
 }
 
+interface RelatedTheme {
+    id: number;
+    title: string;
+}
+
 interface Theme {
     id: number;
     title: string;
     description: string;
     subthemes: Subtheme[];
     award:Award;
+    relatedThemes:RelatedTheme[];
 }
 
 interface ThemeData {
