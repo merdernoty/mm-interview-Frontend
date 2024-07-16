@@ -31,6 +31,7 @@ interface UserData {
     error: string | null;
     fetchUserDataByUsername: (username: string) => Promise<void>;
     fetchUserDataByToken: (token: string) => Promise<void>;
+
 }
 
 const useUserData = create<UserData>((set) => ({
@@ -38,11 +39,13 @@ const useUserData = create<UserData>((set) => ({
     isLoading: false,
     error: null,
 
+
+
     fetchUserDataByUsername: async (username: string) => {
         set({ isLoading: true, error: null });
         try {
             const url = `/users/byUsername/${username}`;
-            const res = await axios.get(url);
+            const res = await axiosURL.get(url);
             set({ data: res.data, isLoading: false });
         } catch (error) {
             const errorMessage = error instanceof Error ? error.message : 'Unknown error';

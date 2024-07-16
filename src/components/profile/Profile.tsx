@@ -1,17 +1,41 @@
-import React, { useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import useUserData from '@/lib/stores/userDataStore';
 import { useParams } from 'next/navigation'
 
 
 const Profile = () => {
 
-    const { data, fetchUserDataByUsername } = useUserData();
+    const { data, fetchUserDataByToken,fetchUserDataByUsername } = useUserData();
+    const [token, setToken] = useState<string>("");
 
     const { username } = useParams<{ username: string }>();
 
+
     useEffect(() => {
-        fetchUserDataByUsername(username);
-        //fetchUserDataByUsername
+        const currentPath = window.location.pathname;
+        if (currentPath.startsWith('/user')) {
+            fetchUserDataByUsername(username);
+        }
+        else if (currentPath.startsWith('/me')) {
+            if (typeof window !== 'undefined') {
+                const tokenString = localStorage.getItem('token');
+                if (tokenString) {
+                    try {
+                        const tokenObject = JSON.parse(tokenString);
+                        const token = tokenObject?.state?.token || '';
+                        setToken(token);
+                        if (token) {
+                            fetchUserDataByToken(token);
+                        }
+                    } catch (error) {
+                        console.error('Ошибка при разборе токена из localStorage:', error);
+                        setToken('');
+                    }
+                } else {
+                    setToken('');
+                }
+            }
+        }
     }, [username]);
 
 
