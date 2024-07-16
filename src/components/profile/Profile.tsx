@@ -5,19 +5,14 @@ import { useParams } from 'next/navigation'
 
 const Profile = () => {
 
-    const { data, fetchUserData } = useUserData();
+    const { data, fetchUserDataByUsername } = useUserData();
 
-    const { userId } = useParams<{ userId: string }>();
+    const { username } = useParams<{ username: string }>();
 
     useEffect(() => {
-
-        const userIdNum = Number(userId);
-        if (!isNaN(userIdNum)) {
-            fetchUserData(userIdNum);
-        } else {
-            console.error(`Invalid userId: ${userId}`);
-        }
-    }, [userId]);
+        fetchUserDataByUsername(username);
+        //fetchUserDataByUsername
+    }, [username]);
 
 
     return (
