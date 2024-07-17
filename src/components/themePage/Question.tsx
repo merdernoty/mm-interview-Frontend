@@ -1,6 +1,6 @@
 import React from 'react';
 import { CircleDashed, Book, Star } from 'lucide-react';
-import useQuestion from "@/lib/stores/qustionsStore";
+import useUser from "@/lib/stores/userStore";
 
 interface QuestionProps {
     question: {
@@ -11,10 +11,10 @@ interface QuestionProps {
 }
 
 const Question: React.FC<QuestionProps> = ({ question }) => {
-    const { addToFav } = useQuestion();
+    const { addToFav } = useUser();
 
     const handleAddToFav = () => {
-        addToFav(question.id); // Передаем id вопроса в функцию addToFav
+        addToFav(question.id);
     };
 
     return (
