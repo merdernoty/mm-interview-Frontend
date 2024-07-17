@@ -7,6 +7,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            backgroundImage: {
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            },
             colors: {
                 mainBlack: '#1c1c1c',
                 blackUI: '#272727'
