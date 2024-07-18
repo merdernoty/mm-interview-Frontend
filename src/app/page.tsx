@@ -8,7 +8,7 @@ function page() {
   return (
       <div>
 
-          <div className=" mt-14 w-full h-96 bg-purple-950">
+          <div className=" mt-14 w-full h-96 bg-[#4a29a5]">
 
           </div>
           <Container>

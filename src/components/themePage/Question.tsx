@@ -29,7 +29,7 @@ const Question: React.FC<QuestionProps> = ({ question }) => {
             </div>
             <div className="w-1/4 text-right">Easy</div>
             <button className="px-4" onClick={handleAddToFav}>
-                <Star />
+               добавить в избранное
             </button>
         </li>
     );

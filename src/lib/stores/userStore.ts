@@ -74,7 +74,7 @@ const useUser = create<UserData>((set) => ({
     fetchUserDataByToken: async () => {
         try {
             const token = getUserToken();
-            const res = await axios.post('http://localhost:5000/users/me', null, {
+            const res = await axiosURL.post('/users/me', null, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
