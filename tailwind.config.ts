@@ -8,7 +8,8 @@ const config: Config = {
     theme: {
         extend: {
             backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                'noise-light': "url('/noise-light.png')",
+                'obsidian-texture':"url('/obsidianTexture.png')",
             },
             colors: {
                 mainBlack: '#1c1c1c',

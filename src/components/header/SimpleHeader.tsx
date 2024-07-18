@@ -10,7 +10,7 @@ import {
     Star,
     History,
 } from 'lucide-react'
-import InputForm from '@/components/UI/Input/InputForm'
+import InputForm from '@/components/ui/Input/InputForm'
 import { useParams } from 'next/navigation'
 import useAuthStore from '@/lib/stores/authStore'
 import usePathStore from '@/lib/stores/pathStore'
