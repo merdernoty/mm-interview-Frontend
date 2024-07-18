@@ -40,6 +40,7 @@ interface ThemeData {
     isLoading: boolean;
     error: string | null;
     fetchThemeData: (themeTitle: string) => Promise<void>;
+
 }
 
 const useThemeData = create<ThemeData>((set) => ({
@@ -58,6 +59,8 @@ const useThemeData = create<ThemeData>((set) => ({
             set({ error: errorMessage, isLoading: false });
         }
     },
+
+
 }));
 
 export default useThemeData;

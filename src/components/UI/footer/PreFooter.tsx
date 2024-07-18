@@ -10,7 +10,7 @@ const PreFooter = () => {
         borderRadius: "10px",
         padding: "20px",
         position: "relative",
-        opacity: "0.8",
+        opacity: "1",
         boxShadow: "0px 20px 20px rgba(76, 44, 164, 0.2)",
     };
 
@@ -23,23 +23,20 @@ const PreFooter = () => {
         borderTop: "1px solid",
         borderImageSource: "linear-gradient(90deg, transparent, rgba(143, 120, 255, .5) 50%, transparent)",
         borderImageSlice: "1",
-        filter: "drop-shadow(0 0 10px rgba(76, 44, 164, 0.8))",
+        filter: "drop-shadow:(0 1px 10px rgba(76, 44, 164, 0.8))",
     };
 
 
     return (
         <>
-
-            <div  className="px-5 relative  ">
-
-                <div className=" bg-[#1b1b1e] h-full w-full rounded-tl-lg">
+            <div className="styles_divider__elk7j" style={lineStyles1}/>
+            <div className="px-12 py-5 relative  ">
+                <div className="styles_divider__elk7j" style={lineStyles1}/>
                     <div style={styles}>
                         <div>
                         </div>
                     </div>
-                    <div className="styles_divider__elk7j" style={lineStyles1}></div>
 
-                </div>
             </div>
 
         </>
