@@ -114,8 +114,9 @@ const Profile = () => {
 
                                 </div>
                                 <div className="mt-4 ml-5  ">
-                                    <p className="text-[#868796]">Java and Spring</p>
-                                    <p className="text-[#868796]">Redis kafka and Sql dbs</p>
+                                    <p className="text-[#868796]">Java + Spring</p>
+                                    <p className="text-[#868796]">Frontend</p>
+
                                 </div>
                             </div>
                             <div className="h-[120px] w-1/3 bg-[#1e1e22] rounded-md">
@@ -130,8 +131,8 @@ const Profile = () => {
                                                 <p>Energy:</p>
                                                 <p className="font-bold text-[#d6c6f8]">Full</p>
                                             </div>
-                                            <button className="bg-[#755FBF] text-white px-4 py-1 rounded text-nowrap">
-                                                <p>premium</p>
+                                            <button className="bg-[#755FBF] px-4 py-1 rounded ">
+                                                <p className="text-[#B197EB] text-nowrap">premium</p>
                                             </button>
                                         </div>
                                     </div>
@@ -167,36 +168,108 @@ const Profile = () => {
                                 <ul className="m-0 p-4 flex flex-col items-center gap-2">
                                     <li className="w-full">
                                         <div
-                                            className="flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
                                             <div className="flex items-center gap-3">
                                                 <Star className="text-[#c6c7f8] fill-current"/>
                                                 <p className="flex-grow">What is HashMap</p>
                                             </div>
-                                            <div className="flex items-center">
-                                                <Book className="size-5 mr-1"/>
-                                                <p className="mr-14 ">Answer</p>
-                                                <p className="text-[#755fbf] font-bold">Hard</p>
+                                            <div className="w-1/4 flex items-center justify-between">
+                                                <div className="flex items-center gap-2">
+                                                    <Book className="size-5"/>
+                                                    <p className="mr-4">Answer</p>
+                                                </div>
+                                                <p className="text-[#9c7eff] font-bold">Hard</p>
                                             </div>
                                         </div>
                                     </li>
 
                                     <li className="w-full">
                                         <div
-                                            className="flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
                                             <div className="flex items-center gap-3">
                                                 <Star className="text-[#c6c7f8] fill-current"/>
                                                 <p className="flex-grow">Difference between ArrayList and LinkedList</p>
                                             </div>
-                                            <div className="flex items-center">
-                                                <Book className="size-5 mr-1"/>
-                                                <p className="mr-14 ">Answer</p>
-                                                <p className="text-[#755fbf] font-bold">Easy</p>
+                                            <div className="w-1/4 flex items-center justify-between">
+                                                <div className="flex items-center gap-2">
+                                                    <Book className="size-5"/>
+                                                    <p className="mr-4">Answer</p>
+                                                </div>
+                                                <p className="text-[#CBBCF3] font-bold">Easy</p>
                                             </div>
                                         </div>
                                     </li>
 
+                                    <li className="w-full">
+                                        <div
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                            <div className="flex items-center gap-3">
+                                                <Star className="text-[#c6c7f8] fill-current"/>
+                                                <p className="flex-grow">Difference between Locks and synchronized
+                                                    block</p>
+                                            </div>
+                                            <div className="w-1/4 flex items-center justify-between">
+                                                <div className="flex items-center gap-2">
+                                                    <Book className="size-5"/>
+                                                    <p className="mr-4">Answer</p>
+                                                </div>
+                                                <p className="text-[#968CD9] font-bold">Medium</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="w-full">
+                                        <div
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                            <div className="flex items-center gap-3">
+                                                <Star className="text-[#c6c7f8] fill-current"/>
+                                                <p className="flex-grow">Difference between HashMap and Hashtable</p>
+                                            </div>
+                                            <div className="w-1/4 flex items-center justify-between">
+                                                <div className="flex items-center gap-2">
+                                                    <Book className="size-5"/>
+                                                    <p className="mr-4">Answer</p>
+                                                </div>
+                                                <p className="text-[#9c7eff] font-bold">Hard</p>
+                                            </div>
+                                        </div>
+                                    </li>
 
+                                    <li className="w-full">
+                                        <div
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                            <div className="flex items-center gap-3">
+                                                <Star className="text-[#c6c7f8] fill-current"/>
+                                                <p className="flex-grow">What is the Singleton Pattern?</p>
+                                            </div>
+                                            <div className="w-1/4 flex items-center justify-between">
+                                                <div className="flex items-center gap-2">
+                                                    <Book className="size-5"/>
+                                                    <p className="mr-4">Answer</p>
+                                                </div>
+                                                <p className="text-[#968CD9] font-bold">Medium</p>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li className="w-full">
+                                        <div
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                            <div className="flex items-center gap-3">
+                                                <Star className="text-[#c6c7f8] fill-current"/>
+                                                <p className="flex-grow">Explain the use of the `volatile` keyword in
+                                                    Java</p>
+                                            </div>
+                                            <div className="w-1/4 flex items-center justify-between">
+                                                <div className="flex items-center gap-2">
+                                                    <Book className="size-5"/>
+                                                    <p className="mr-4">Answer</p>
+                                                </div>
+                                                <p className="text-[#968CD9] font-bold">Medium</p>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
+
                             </div>
                         </div>
 
