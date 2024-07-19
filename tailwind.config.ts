@@ -16,6 +16,9 @@ const config: Config = {
                 blackUI: '#272727',
                 grayViolet: '#868796',
             },
+            screens: {
+                'lg': '1200px',
+            },
             fontFamily: {
                 body: [
                     'Montserrat',

@@ -70,9 +70,12 @@ const Profile = () => {
 
                                 <div className="flex  flex-col items-center">
                                     <button
-                                        className="w-[90%] h-[32px] rounded-md mt-5 flex justify-center bg-[#35684b] items-center text-gray-100">
+                                        className="w-[90%] h-[32px] rounded-md mt-5 flex justify-center bg-[#35684b] items-center text-gray-100
+               transform transition-transform duration-200 hover:bg-[#2d5a40]  hover:scale-[1.05]">
                                         Edit profile
                                     </button>
+
+
                                     <div className=" w-[90%] items-center max-w-md h-[40px] flex gap-3 ">
 
 
@@ -128,75 +131,87 @@ const Profile = () => {
                     </div>
 
                     <div className="flex-1 flex flex-col  gap-5">
-                        <div className="flex gap-5">
-                            <div className="h-[120px] w-1/3 bg-[#1e1e22] rounded-md">
-                                <div className="flex h-1/6 gap-4 ml-5 mt-4 ">
-                                    <Star className=" text-[#c6c7f8] fill-current"/>
-                                    <p className="text-[#D6C6F8] font-bold">favourite questions</p>
-                                </div>
-                                <div className="mt-4 ml-5  ">
-                                    <p className="text-grayViolet">What is HashMap</p>
-                                    <p className="text-grayViolet">Difference between ArrayList and...</p>
-                                </div>
-                            </div>
-                            <div className="h-[120px] w-1/3 bg-[#1e1e22] rounded-md">
-                                <div className="flex h-1/6 gap-4 ml-5 mt-4 ">
-                                    <ListEnd className=" text-[#c6c7f8] "/>
-                                    <p className="text-[#D6C6F8] font-bold">playlists</p>
 
-                                </div>
-                                <div className="mt-4 ml-5  ">
-                                    <p className="text-[#868796]">Java + Spring</p>
-                                    <p className="text-[#868796]">Frontend</p>
 
-                                </div>
-                            </div>
-                            <div className="h-[120px] w-1/3 bg-[#1e1e22] rounded-md">
-                                <div className="flex items-center justify-between h-1/6 gap-5 ml-5 mt-4 ">
-                                    <Zap className=" text-[#c6c7f8] fill-current"/>
-                                    <div className="w-4/5 h-1 rounded-md bg-[#D6C6F8] mr-5"/>
-                                </div>
-                                <div className="flex w-full h-2/3 items-end">
-                                    <div className="flex w-full py-2 px-4">
-                                        <div className="flex w-full justify-between items-center">
-                                            <div className="flex gap-3">
-                                                <p>Energy:</p>
-                                                <p className="font-bold text-[#d6c6f8]">Full</p>
+                        <div className="flex-1 flex flex-col gap-5">
+                            <div className="flex gap-5 flex-wrap lg:flex-nowrap">
+
+                                <button
+                                    className="h-[120px] w-full lg:w-1/3 bg-[#1e1e22] rounded-md transform transition-transform duration-200 hover:scale-105 active:scale-95 flex flex-col">
+                                    <div className="flex h-1/6 gap-4 ml-5 mt-4 items-start">
+                                        <Star className="text-[#c6c7f8] fill-current"/>
+                                        <p className="text-[#D6C6F8] font-bold">favourite questions</p>
+                                    </div>
+                                    <div className="mt-4 ml-5">
+                                        <p className="text-grayViolet text-left">What is HashMap</p>
+                                        <p className="text-grayViolet text-left">Difference between ArrayList and...</p>
+                                    </div>
+                                    <div className="mt-4 ml-5"></div>
+                                </button>
+
+                                <button
+                                    className="h-[120px] w-full lg:w-1/3 bg-[#1e1e22] rounded-md transform transition-transform duration-200 hover:scale-105 active:scale-95">
+                                    <div className="flex h-1/6 gap-4 ml-5 mt-4">
+                                        <ListEnd className="text-[#c6c7f8]"/>
+                                        <p className="text-[#D6C6F8] font-bold">playlists</p>
+                                    </div>
+                                    <div className="mt-4 ml-5">
+                                        <p className="text-[#868796] text-left">Java + Spring</p>
+                                        <p className="text-[#868796] text-left">Frontend</p>
+                                    </div>
+                                    <div className="mt-4 ml-5"></div>
+                                </button>
+
+
+                                <div
+                                    className="h-[120px] w-full lg:w-1/3 bg-[#1e1e22] rounded-md transform transition-transform duration-200 hover:scale-105">
+                                    <div className="flex items-center justify-between h-1/6 gap-5 ml-5 mt-4 ">
+                                        <Zap className=" text-[#c6c7f8] fill-current"/>
+                                        <div className="w-5/6 h-1 rounded-md bg-[#D6C6F8] mr-12 lg:mr-5"/>
+                                    </div>
+                                    <div className="flex w-full h-2/3 items-end">
+                                        <div className="flex w-full py-2 px-4">
+                                            <div className="flex w-full justify-between items-center">
+                                                <div className="flex gap-3 lg:flex-nowrap">
+                                                    <p>Energy:</p>
+                                                    <p className="font-bold text-[#d6c6f8]">Full</p>
+                                                </div>
+                                                <button className="bg-[#755FBF] px-4 py-1 rounded ">
+                                                    <p className="text-[#B197EB] text-nowrap ">premium</p>
+                                                </button>
                                             </div>
-                                            <button className="bg-[#755FBF] px-4 py-1 rounded ">
-                                                <p className="text-[#B197EB] text-nowrap">premium</p>
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
 
-                        <div className="w-full h-[300px] bg-[#1e1e22] rounded-md">
-                            <div className="h-1/6 w-full flex items-center justify-end gap-8 pr-8 text-[#6B6C7A] ">
+
+                        <div
+                            className="w-full h-[300px] bg-[#1e1e22] rounded-md transform transition-transform duration-200 hover:scale-[1.01]">
+                            <div className="h-1/6 w-full flex items-center justify-end gap-8 pr-8 text-[#6B6C7A]">
                                 <p>
-                                    total active days: <span className="text-gray-300 ">120</span>
+                                    total active days: <span className="text-gray-300">120</span>
                                 </p>
                                 <p>
-                                    max streak: <span className="text-gray-300 ">5</span>
+                                    max streak: <span className="text-gray-300">5</span>
                                 </p>
                             </div>
-                            <div className=" w-full h-full pb-16 flex items-center px-6  ">
-                                <div className="w-full h-[80%] border-2 border-[#363639] mb-12">
-                                </div>
-
+                            <div className="w-full h-full pb-16 flex items-center px-6">
+                                <div className="w-full h-[80%] border-2 border-[#363639] mb-12"></div>
                             </div>
                         </div>
+
                         <div className="w-full flex-1 bg-[#1e1e22] rounded-md ">
                             <div
                                 className="w-full h-[50px] bg-[#1e1e22] flex items-center justify-between px-8 text-grayViolet rounded-md">
                                 <p>Completed</p>
-                                <div className="flex ">
-                                <p className="text-nowrap">View more </p>
-                                    <ChevronRight className=" stroke-[1.5px]"/>
-                                </div>
+
+                                    <button className="flex transition-colors duration-200 hover:text-[#B197EB] hover:bg-[#1e1e22]">
+                                        <p className="text-nowrap">View more</p>
+                                        <ChevronRight className=" stroke-[1.5px]"/>
+                                    </button>
+
                             </div>
                             <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]"/>
                             <div>
