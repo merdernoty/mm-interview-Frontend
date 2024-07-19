@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import useUser from '@/lib/stores/userStore';
 import { useParams } from 'next/navigation'
-import {Github, ListEnd, Star, Zap} from 'lucide-react'
+import {Book, Github, Lightbulb, ListEnd, Star, Zap} from 'lucide-react'
 
 
 
@@ -61,7 +61,7 @@ const Profile = () => {
                                                 <p>Sakura</p>
                                                 <p className="text-[#bbbbbc]">yakovenko</p>
                                             </div>
-                                            <p className="mb-5 text-[#bbbbbc]">Rank: 666</p>
+                                            <p className="mb-5 text-[#bbbbbc]">Rank: 52</p>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@ const Profile = () => {
                                     <div className=" w-[90%] items-center max-w-md h-[40px] flex gap-3 ">
                                         <div className="flex ">
                                             <Github className="size-6 text-[#6B6C7A]"/>
-                                            <span className="text-[#6B6C7A]">montle</span>
+                                            <p className="text-[#6B6C7A]">montle</p>
                                         </div>
                                     </div>
                                 </div>
@@ -84,11 +84,11 @@ const Profile = () => {
 
                             <div className="w-full h-1/3 bg-[#1e1e22]">
                                 <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]"/>
-                                <span className="ml-5">Solved</span>
+                                <p className="ml-5">Solved</p>
                             </div>
                             <div className="w-full h-1/3 bg-[#1e1e22]">
                                 <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]"/>
-                                <span className="ml-5">Achievements</span>
+                                <p className="ml-5">Achievements</p>
                             </div>
                         </div>
 
@@ -103,8 +103,8 @@ const Profile = () => {
                                     <p className="text-[#D6C6F8] font-bold">favourite questions</p>
                                 </div>
                                 <div className="mt-4 ml-5  ">
-                                    <p className="text-[#868796]">What is HashMap</p>
-                                    <p className="text-[#868796]">Difference between ArrayList and...</p>
+                                    <p className="text-grayViolet">What is HashMap</p>
+                                    <p className="text-grayViolet">Difference between ArrayList and...</p>
                                 </div>
                             </div>
                             <div className="h-[120px] w-1/3 bg-[#1e1e22] rounded-md">
@@ -127,11 +127,11 @@ const Profile = () => {
                                     <div className="flex w-full py-2 px-4">
                                         <div className="flex w-full justify-between items-center">
                                             <div className="flex gap-3">
-                                                <span>Energy:</span>
-                                                <span className="font-bold text-[#d6c6f8]">Full</span>
+                                                <p>Energy:</p>
+                                                <p className="font-bold text-[#d6c6f8]">Full</p>
                                             </div>
                                             <button className="bg-[#755FBF] text-white px-4 py-1 rounded text-nowrap">
-                                                <span>premium</span>
+                                                <p>premium</p>
                                             </button>
                                         </div>
                                     </div>
@@ -143,98 +143,59 @@ const Profile = () => {
 
                         <div className="w-full h-[300px] bg-[#1e1e22] rounded-md">
                             <div className="h-1/6 w-full flex items-center justify-end gap-16 px-16 text-[#6B6C7A] ">
-                                <span>
+                                <p>
                                     total active days:
-                                </span>
-                                <span>
+                                </p>
+                                <p>
                                     max streak:
-                                </span>
+                                </p>
                             </div>
                             <div className=" w-full h-5/6 p-5 flex items-center px-8  ">
-                                <div className="w-[97%] h-[77%] border-2 border-[#363639] mb-12">
+                                <div className="w-full h-[75%] border-2 border-[#363639] mb-12">
                                 </div>
 
                             </div>
                         </div>
                         <div className="w-full flex-1 bg-[#1e1e22] rounded-md ">
                             <div
-                                className="w-full h-[50px] bg-[#1e1e22] flex items-center justify-between px-8 text-[#6B6C7A] rounded-md">
-                                <span>Completed</span>
-                                <span className="text-nowrap">View more</span>
+                                className="w-full h-[50px] bg-[#1e1e22] flex items-center justify-between px-8 text-grayViolet rounded-md">
+                                <p>Completed</p>
+                                <p className="text-nowrap">View more</p>
                             </div>
                             <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]"/>
                             <div>
                                 <ul className="m-0 p-4 flex flex-col items-center gap-2">
                                     <li className="w-full">
                                         <div
-                                            className="flex items-center justify-between bg-[#343439] rounded-md w-full h-[50px]">
-                                            <div>
-                                                <p>
-                                                    qweqwe
-                                                </p>
+                                            className="flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                            <div className="flex items-center gap-3">
+                                                <Star className="text-[#c6c7f8] fill-current"/>
+                                                <p className="flex-grow">What is HashMap</p>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <Book className="size-5 mr-1"/>
+                                                <p className="mr-14 ">Answer</p>
+                                                <p className="text-[#755fbf] font-bold">Hard</p>
                                             </div>
                                         </div>
                                     </li>
+
                                     <li className="w-full">
                                         <div
-                                            className="flex items-center justify-between bg-[#343439] rounded-md w-full h-[50px]">
-                                            <div>
-                                                <p>
-                                                    qweqwe
-                                                </p>
+                                            className="flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                            <div className="flex items-center gap-3">
+                                                <Star className="text-[#c6c7f8] fill-current"/>
+                                                <p className="flex-grow">Difference between ArrayList and LinkedList</p>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <Book className="size-5 mr-1"/>
+                                                <p className="mr-14 ">Answer</p>
+                                                <p className="text-[#755fbf] font-bold">Easy</p>
                                             </div>
                                         </div>
                                     </li>
-                                    <li className="w-full">
-                                        <div
-                                            className="flex items-center justify-between bg-[#343439] rounded-md w-full h-[50px]">
-                                            <div>
-                                                <p>
-                                                    qweqwe
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="w-full">
-                                        <div
-                                            className="flex items-center justify-between bg-[#343439] rounded-md w-full h-[50px]">
-                                            <div>
-                                                <p>
-                                                    qweqwe
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="w-full">
-                                        <div
-                                            className="flex items-center justify-between bg-[#343439] rounded-md w-full h-[50px]">
-                                            <div>
-                                                <p>
-                                                    qweqwe
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="w-full">
-                                        <div
-                                            className="flex items-center justify-between bg-[#343439] rounded-md w-full h-[50px]">
-                                            <div>
-                                                <p>
-                                                    qweqwe
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="w-full">
-                                        <div
-                                            className="flex items-center justify-between bg-[#343439] rounded-md w-full h-[50px]">
-                                            <div>
-                                                <p>
-                                                    qweqwe
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
+
+
                                 </ul>
                             </div>
                         </div>

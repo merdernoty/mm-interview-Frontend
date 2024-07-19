@@ -13,7 +13,8 @@ const config: Config = {
             },
             colors: {
                 mainBlack: '#1c1c1c',
-                blackUI: '#272727'
+                blackUI: '#272727',
+                grayViolet: '#868796',
             },
             fontFamily: {
                 body: [
