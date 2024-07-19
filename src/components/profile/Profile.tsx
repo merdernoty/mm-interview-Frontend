@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import useUser from '@/lib/stores/userStore';
 import { useParams } from 'next/navigation'
-import {Book, Cat, Github, Lightbulb, ListEnd, Medal, Star, Trophy, Zap} from 'lucide-react'
+import {Book, Cat, ChevronRight, Github, Lightbulb, ListEnd, Medal, Star, Trophy, Zap} from 'lucide-react'
 
 
 
@@ -74,22 +74,38 @@ const Profile = () => {
                                         Edit profile
                                     </button>
                                     <div className=" w-[90%] items-center max-w-md h-[40px] flex gap-3 ">
+
+
                                         <div className="flex ">
                                             <Github className="size-6 text-[#6B6C7A]"/>
                                             <p className="text-[#6B6C7A]">montle</p>
                                         </div>
                                     </div>
                                 </div>
-
+                                <hr className="border-t border-[#363639] mx-auto w-[98%]"/>
                             </div>
 
 
-                            <div className="w-full h-1/3 bg-[#1e1e22]">
-                                <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]"/>
-                                <p className="ml-5">Solved</p>
+                            <div className="w-full pt-1 pb-6 bg-[#1e1e22]">
+
+                                <p className="ml-5">Community Stats</p>
+                                <div className="h-full flex w-full">
+                                    <div
+                                        className=" flex flex-col ml-5 mt-2 gap-3 ">
+                                        <p className="text-left text-grayViolet">Favourite theme <span
+                                            className="text-[#CBBCF3]"> Spring</span></p>
+                                        <p className="text-left text-grayViolet">Reputation <span
+                                            className="text-[#CBBCF3]"> 400</span></p>
+                                        <p className="text-left text-grayViolet">Solutions <span
+                                            className="text-[#CBBCF3]"> 12</span></p>
+
+                                    </div>
+                                </div>
+                                <hr className="border-t border-[#363639] mt-1 mx-auto w-[98%]"/>
                             </div>
+
                             <div className="w-full h-1/3 bg-[#1e1e22]">
-                                <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]"/>
+
                                 <p className="ml-5 text-white">Achievements</p>
                                 <div className="w-full  flex flex-wrap p-5 gap-x-4 gap-y-2">
                                     <Cat className="size-1/5 text-white"/>
@@ -101,7 +117,7 @@ const Profile = () => {
                                     <Cat className="size-1/5 text-white"/>
 
 
-                                    <Medal  className="size-1/5 text-white"/>
+                                    <Medal className="size-1/5 text-white"/>
                                 </div>
 
                             </div>
@@ -159,16 +175,16 @@ const Profile = () => {
                         </div>
 
                         <div className="w-full h-[300px] bg-[#1e1e22] rounded-md">
-                            <div className="h-1/6 w-full flex items-center justify-end gap-16 px-16 text-[#6B6C7A] ">
+                            <div className="h-1/6 w-full flex items-center justify-end gap-8 pr-8 text-[#6B6C7A] ">
                                 <p>
-                                    total active days:
+                                    total active days: <span className="text-gray-300 ">120</span>
                                 </p>
                                 <p>
-                                    max streak:
+                                    max streak: <span className="text-gray-300 ">5</span>
                                 </p>
                             </div>
-                            <div className=" w-full h-5/6 p-5 flex items-center px-8  ">
-                                <div className="w-full h-[75%] border-2 border-[#363639] mb-12">
+                            <div className=" w-full h-full pb-16 flex items-center px-6  ">
+                                <div className="w-full h-[80%] border-2 border-[#363639] mb-12">
                                 </div>
 
                             </div>
@@ -177,7 +193,10 @@ const Profile = () => {
                             <div
                                 className="w-full h-[50px] bg-[#1e1e22] flex items-center justify-between px-8 text-grayViolet rounded-md">
                                 <p>Completed</p>
-                                <p className="text-nowrap">View more</p>
+                                <div className="flex ">
+                                <p className="text-nowrap">View more </p>
+                                    <ChevronRight className=" stroke-[1.5px]"/>
+                                </div>
                             </div>
                             <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]"/>
                             <div>
@@ -254,7 +273,7 @@ const Profile = () => {
                                         <div
                                             className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
                                             <div className="flex items-center gap-3">
-                                                <Star className="text-[#c6c7f8] fill-current"/>
+                                                <Star className=""/>
                                                 <p className="flex-grow">What is the Singleton Pattern?</p>
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
@@ -271,7 +290,7 @@ const Profile = () => {
                                         <div
                                             className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
                                             <div className="flex items-center gap-3">
-                                                <Star className="text-[#c6c7f8] fill-current"/>
+                                                <Star className=""/>
                                                 <p className="flex-grow">Explain the use of the `volatile` keyword in
                                                     Java</p>
                                             </div>
