@@ -226,7 +226,7 @@ const Profile = () => {
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
                                                 <button
-                                                    className="flex p-2">
+                                                    className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
                                                 </button>
@@ -246,7 +246,7 @@ const Profile = () => {
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
                                                 <button
-                                                    className="flex p-2">
+                                                    className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
                                                 </button>
@@ -266,7 +266,7 @@ const Profile = () => {
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
                                                 <button
-                                                    className="flex p-2">
+                                                    className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
                                                 </button>
@@ -285,10 +285,11 @@ const Profile = () => {
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
                                                 <button
-                                                    className="flex p-2">
+                                                    className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
                                                 </button>
+
                                                 <p className="text-[#9c7eff] font-bold">Hard</p>
                                             </div>
                                         </button>
