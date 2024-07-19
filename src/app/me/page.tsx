@@ -13,6 +13,7 @@ const Page = () => {
         <Container>
             <Profile/>
         </Container>
+
     );
 
 };
