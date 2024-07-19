@@ -197,8 +197,8 @@ const Profile = () => {
                                     max streak: <span className="text-gray-300">5</span>
                                 </p>
                             </div>
-                            <div className="w-full h-full pb-16 flex items-center px-6">
-                                <div className="w-full h-[80%] border-2 border-[#363639] mb-12"></div>
+                            <div className="w-full h-[240px] flex items-center py-4 px-6">
+                                <div className="w-full h-full  border-2 border-[#363639]  "></div>
                             </div>
                         </div>
 
@@ -217,107 +217,122 @@ const Profile = () => {
                             <div>
                                 <ul className="m-0 p-4 flex flex-col items-center gap-2">
                                     <li className="w-full">
-                                        <div
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                        <button
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
+                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
                                             <div className="flex items-center gap-3">
                                                 <Star className="text-[#c6c7f8] fill-current"/>
                                                 <p className="flex-grow">What is HashMap</p>
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
-                                                <div className="flex items-center gap-2">
+                                                <button
+                                                    className="flex p-2">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
-                                                </div>
+                                                </button>
                                                 <p className="text-[#9c7eff] font-bold">Hard</p>
                                             </div>
-                                        </div>
+                                        </button>
                                     </li>
 
+
                                     <li className="w-full">
-                                        <div
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                        <button
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
+                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
                                             <div className="flex items-center gap-3">
                                                 <Star className="text-[#c6c7f8] fill-current"/>
                                                 <p className="flex-grow">Difference between ArrayList and LinkedList</p>
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
-                                                <div className="flex items-center gap-2">
+                                                <button
+                                                    className="flex p-2">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
-                                                </div>
+                                                </button>
                                                 <p className="text-[#CBBCF3] font-bold">Easy</p>
                                             </div>
-                                        </div>
+                                        </button>
                                     </li>
 
                                     <li className="w-full">
-                                        <div
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                        <button
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
+                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
                                             <div className="flex items-center gap-3">
                                                 <Star className="text-[#c6c7f8] fill-current"/>
                                                 <p className="flex-grow">Difference between Locks and synchronized
                                                     block</p>
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
-                                                <div className="flex items-center gap-2">
+                                                <button
+                                                    className="flex p-2">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
-                                                </div>
+                                                </button>
                                                 <p className="text-[#968CD9] font-bold">Medium</p>
                                             </div>
-                                        </div>
+                                        </button>
                                     </li>
+
                                     <li className="w-full">
-                                        <div
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                        <button
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
+                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
                                             <div className="flex items-center gap-3">
                                                 <Star className="text-[#c6c7f8] fill-current"/>
                                                 <p className="flex-grow">Difference between HashMap and Hashtable</p>
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
-                                                <div className="flex items-center gap-2">
+                                                <button
+                                                    className="flex p-2">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
-                                                </div>
+                                                </button>
                                                 <p className="text-[#9c7eff] font-bold">Hard</p>
                                             </div>
-                                        </div>
+                                        </button>
                                     </li>
 
                                     <li className="w-full">
-                                        <div
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                        <button
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
+                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
                                             <div className="flex items-center gap-3">
                                                 <Star className=""/>
                                                 <p className="flex-grow">What is the Singleton Pattern?</p>
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
-                                                <div className="flex items-center gap-2">
+                                                <button
+                                                    className="flex p-2">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
-                                                </div>
+                                                </button>
                                                 <p className="text-[#968CD9] font-bold">Medium</p>
                                             </div>
-                                        </div>
+                                        </button>
                                     </li>
 
                                     <li className="w-full">
-                                        <div
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4">
+                                        <button
+                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
+                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
                                             <div className="flex items-center gap-3">
                                                 <Star className=""/>
                                                 <p className="flex-grow">Explain the use of the `volatile` keyword in
                                                     Java</p>
                                             </div>
                                             <div className="w-1/4 flex items-center justify-between">
-                                                <div className="flex items-center gap-2">
+                                                <button
+                                                    className="flex p-2">
                                                     <Book className="size-5"/>
                                                     <p className="mr-4">Answer</p>
-                                                </div>
+                                                </button>
                                                 <p className="text-[#968CD9] font-bold">Medium</p>
                                             </div>
-                                        </div>
+                                        </button>
                                     </li>
+
                                 </ul>
 
                             </div>
