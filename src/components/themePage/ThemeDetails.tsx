@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import useThemeData from '@/lib/stores/themeDataStore';
 import Subtheme from './Subtheme';
-import {Trophy,Database,Leaf}  from 'lucide-react';
+
 
 const ThemeDetails = () => {
     const { data, fetchThemeData } = useThemeData();
