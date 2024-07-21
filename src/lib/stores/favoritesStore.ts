@@ -35,7 +35,7 @@ const useFavorites = create<FavoritesStore>((set) => ({
 
             console.log('Ответ сервера:', res);
 
-            if (res.status === 201 || res.status === 204) {
+            if (res.status === 201 ) {
                 set({
                     favoriteQuestions: res.data,
                     isLoading: false,
@@ -53,7 +53,7 @@ const useFavorites = create<FavoritesStore>((set) => ({
     addToFav: async (questionId: number) => {
         set({ isLoading: true, error: null });
         try {
-            const token = getUserToken(); // Получение токена
+            const token = getUserToken();
             const res = await axiosURL.post(`/questions/addToFav/${questionId}`, null, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -62,7 +62,7 @@ const useFavorites = create<FavoritesStore>((set) => ({
 
             console.log('Ответ сервера:', res);
 
-            if (res.status === 201 || res.status === 204) {
+            if (res.status === 204 ) {
 
                 set((state) => ({
                     favoriteQuestions: [...state.favoriteQuestions, res.data],
@@ -91,7 +91,7 @@ const useFavorites = create<FavoritesStore>((set) => ({
 
             console.log('Ответ сервера:', res);
 
-            if (res.status === 204) {
+            if (res.status === 204 ) {
                 set((state) => ({
                     favoriteQuestions: state.favoriteQuestions.filter(q => q.id !== questionId),
                     isLoading: false,
