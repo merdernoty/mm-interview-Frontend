@@ -60,25 +60,27 @@ const Question: React.FC<QuestionProps> = ({ question }) => {
             <li key={question.id} className="w-full">
                 <button
                     className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
-                            "
+                hover:bg-[#4a4a4d] transition-colors duration-200"
                 >
                     <div className="flex items-center gap-3">
                         <button
                             onClick={isFavorite ? handleRemoveFromFav : handleAddToFav}
-                            disabled={isLoading} // Деактивировать кнопку, когда идет загрузка
+                            disabled={isLoading}
                             className=''
                         >
-                            <Star className={`w-6 h-6  ${isLoading ? 'text-gray-400' : isFavorite ? 'fill-current text-[#c6c7f8]' : 'text-gray-500'}`}/>
+                            <Star
+                                className={`w-6 h-6  ${isLoading ? 'text-gray-400' : isFavorite ? 'fill-current text-[#c6c7f8]' : 'text-gray-500'}`}/>
                         </button>
-                        <p className="flex-grow">{question.question}</p>
+                        <p className="flex-grow transform transition-transform duration-200 hover:scale-105">{question.question}</p>
                     </div>
                     <div className="w-1/4 flex items-center justify-between">
                         <button
-                            className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none"
+                            className="flex items-center gap-2 p-2 rounded-md transform transition-transform duration-200 hover:scale-105  "
                         >
                             <Book className="size-5"/>
                             <p className="mr-4">Answer</p>
                         </button>
+
                         <p className={`font-bold ${
                             question.difficulty === 'Easy' ? 'text-[#CBBCF3]' :
                                 question.difficulty === 'Medium' ? 'text-[#968CD9]' :
@@ -90,6 +92,7 @@ const Question: React.FC<QuestionProps> = ({ question }) => {
                     </div>
                 </button>
             </li>
+
         </>
     );
 };
