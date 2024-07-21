@@ -1,0 +1,13 @@
+query GetThemes($depth: Int!) {
+    themes(depth: $depth) {
+        ... on Theme {
+            description
+            image
+            award {
+                title
+                image
+                description
+            }
+        }
+    }
+}
