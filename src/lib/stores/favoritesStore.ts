@@ -35,7 +35,7 @@ const useFavorites = create<FavoritesStore>((set) => ({
 
             console.log('Ответ сервера:', res);
 
-            if (res.status === 201) {
+            if (res.status === 201 || res.status === 204) {
                 set({
                     favoriteQuestions: res.data,
                     isLoading: false,
@@ -62,7 +62,7 @@ const useFavorites = create<FavoritesStore>((set) => ({
 
             console.log('Ответ сервера:', res);
 
-            if (res.status === 201) {
+            if (res.status === 201 || res.status === 204) {
 
                 set((state) => ({
                     favoriteQuestions: [...state.favoriteQuestions, res.data],
