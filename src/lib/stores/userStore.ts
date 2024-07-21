@@ -5,6 +5,7 @@ import axios from "axios";
 interface Question {
     id: number;
     question: string;
+    difficulty:string;
 }
 
 interface UserInfo {
@@ -91,6 +92,7 @@ const useUser = create<UserData>((set) => ({
             set({ error: errorMessage, isLoading: false });
         }
     },
+
     addToFav: async (questionId: number) => {
         try {
             const token = getUserToken();
@@ -100,7 +102,7 @@ const useUser = create<UserData>((set) => ({
                 },
             });
             console.log('Ответ сервера:', res);
-            if (res.status === 200 ) {
+            if (res.status === 201 ) {
                 set({ data: res.data, isLoading: false, error: null });
             } else {
                 throw new Error('Ошибка загрузки данных пользователя');

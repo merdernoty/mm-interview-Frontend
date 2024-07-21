@@ -59,8 +59,8 @@ const Profile = () => {
                                         <div
                                             className="w-[60%] h-[145px] flex flex-col justify-between text-white pl-5">
                                             <div className="pt-2">
-                                                <p>Sakura</p>
-                                                <p className="text-[#bbbbbc]">yakovenko</p>
+                                                <p>{data.username}</p>
+                                                <p className="text-[#bbbbbc]">{data.username}</p>
                                             </div>
                                             <p className="mb-5 text-[#bbbbbc]">Rank: 52</p>
                                         </div>
@@ -130,10 +130,10 @@ const Profile = () => {
 
                     </div>
 
-                    <div className="flex-1 flex flex-col  gap-5">
+                    <div className="flex-1 flex flex-col gap-5 h-[120px]">
 
 
-                        <div className="flex-1 flex flex-col gap-5">
+                        <div className="flex-1 flex flex-col gap-5 ">
                             <div className="flex gap-5 flex-wrap lg:flex-nowrap">
 
                                 <button
@@ -142,9 +142,27 @@ const Profile = () => {
                                         <Star className="text-[#c6c7f8] fill-current"/>
                                         <p className="text-[#D6C6F8] font-bold">favourite questions</p>
                                     </div>
-                                    <div className="mt-4 ml-5">
-                                        <p className="text-grayViolet text-left">What is HashMap</p>
-                                        <p className="text-grayViolet text-left">Difference between ArrayList and...</p>
+
+                                        <div className="mt-4 ml-5">
+                                            {data && data.info && data.info.favoriteQuestions && data.info.favoriteQuestions.length > 0 ? (
+                                                <>
+                                                    {data.info.favoriteQuestions[0] && (
+                                                        <p className="text-grayViolet text-left truncate max-w-[200px]">
+                                                            {data.info.favoriteQuestions[0].question}
+                                                        </p>
+                                                    )}
+                                                    {data.info.favoriteQuestions[1] && (
+                                                        <p className="text-grayViolet text-left truncate max-w-[150px]">
+                                                            {data.info.favoriteQuestions[1].question}
+                                                        </p>
+                                                    )}
+                                                </>
+                                            ) : (
+                                                <p className="text-grayViolet text-left">Haven't added any question to
+                                                    favourite</p>
+                                            )}
+
+
                                     </div>
                                     <div className="mt-4 ml-5"></div>
                                 </button>
@@ -156,8 +174,25 @@ const Profile = () => {
                                         <p className="text-[#D6C6F8] font-bold">playlists</p>
                                     </div>
                                     <div className="mt-4 ml-5">
-                                        <p className="text-[#868796] text-left">Java + Spring</p>
-                                        <p className="text-[#868796] text-left">Frontend</p>
+                                        {data && data.info && data.info.favoriteQuestions && data.info.favoriteQuestions.length > 0 ? (
+                                            <>
+                                                {data.info.favoriteQuestions[0] && (
+                                                    <p className="text-grayViolet text-left truncate max-w-[200px]">
+                                                        {data.info.favoriteQuestions[0].question}
+                                                    </p>
+                                                )}
+                                                {data.info.favoriteQuestions[1] && (
+                                                    <p className="text-grayViolet text-left truncate max-w-[150px]">
+                                                        {data.info.favoriteQuestions[1].question}
+                                                    </p>
+                                                )}
+                                            </>
+                                        ) : (
+                                            <p className="text-grayViolet text-left">Haven't added any question to
+                                                favourite</p>
+                                        )}
+
+
                                     </div>
                                     <div className="mt-4 ml-5"></div>
                                 </button>
@@ -202,7 +237,7 @@ const Profile = () => {
                             </div>
                         </div>
 
-                        <div className="w-full flex-1 bg-[#1e1e22] rounded-md ">
+                        <div className=" flex-1 bg-[#1e1e22] rounded-md h-[400px] ">
                             <div
                                 className="w-full h-[50px] bg-[#1e1e22] flex items-center justify-between px-8 text-grayViolet rounded-md">
                                 <p>Completed</p>
@@ -216,123 +251,43 @@ const Profile = () => {
                             <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]"/>
                             <div>
                                 <ul className="m-0 p-4 flex flex-col items-center gap-2">
-                                    <li className="w-full">
-                                        <button
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
-                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
-                                            <div className="flex items-center gap-3">
-                                                <Star className="text-[#c6c7f8] fill-current"/>
-                                                <p className="flex-grow">What is HashMap</p>
-                                            </div>
-                                            <div className="w-1/4 flex items-center justify-between">
+
+                                    {data && data.info && data.info.favoriteQuestions && data.info.favoriteQuestions.length > 0 ? (
+                                        data.info.favoriteQuestions.slice(0, 6).map((question) => (
+                                            <li key={question.id} className="w-full">
                                                 <button
-                                                    className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none">
-                                                    <Book className="size-5"/>
-                                                    <p className="mr-4">Answer</p>
+                                                    className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
+                            transform transition-transform duration-200 hover:scale-105 focus:outline-none"
+                                                >
+                                                    <div className="flex items-center gap-3">
+                                                        <Star className="text-[#c6c7f8] fill-current" />
+                                                        <p className="flex-grow">{question.question}</p>
+                                                    </div>
+                                                    <div className="w-1/4 flex items-center justify-between">
+                                                        <button
+                                                            className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none"
+                                                        >
+                                                            <Book className="size-5" />
+                                                            <p className="mr-4">Answer</p>
+                                                        </button>
+                                                        <p className={`font-bold ${
+                                                            question.difficulty === 'Easy' ? 'text-[#CBBCF3]' :
+                                                                question.difficulty === 'Medium' ? 'text-[#968CD9]' :
+                                                                    question.difficulty === 'Hard' ? 'text-[#968CD9]' :
+                                                                        'text-gray-400'
+                                                        }`}>
+                                                            {question.difficulty}
+                                                        </p>
+                                                    </div>
                                                 </button>
-                                                <p className="text-[#9c7eff] font-bold">Hard</p>
-                                            </div>
-                                        </button>
-                                    </li>
+                                            </li>
+                                        ))
+                                    ) : (
+                                        <li className="w-full">
+                                            <p className="text-center text-gray-500">it`s empty.. </p>
+                                        </li>
+                                    )}
 
-
-                                    <li className="w-full">
-                                        <button
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
-                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
-                                            <div className="flex items-center gap-3">
-                                                <Star className="text-[#c6c7f8] fill-current"/>
-                                                <p className="flex-grow">Difference between ArrayList and LinkedList</p>
-                                            </div>
-                                            <div className="w-1/4 flex items-center justify-between">
-                                                <button
-                                                    className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none">
-                                                    <Book className="size-5"/>
-                                                    <p className="mr-4">Answer</p>
-                                                </button>
-                                                <p className="text-[#CBBCF3] font-bold">Easy</p>
-                                            </div>
-                                        </button>
-                                    </li>
-
-                                    <li className="w-full">
-                                        <button
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
-                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
-                                            <div className="flex items-center gap-3">
-                                                <Star className="text-[#c6c7f8] fill-current"/>
-                                                <p className="flex-grow">Difference between Locks and synchronized
-                                                    block</p>
-                                            </div>
-                                            <div className="w-1/4 flex items-center justify-between">
-                                                <button
-                                                    className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none">
-                                                    <Book className="size-5"/>
-                                                    <p className="mr-4">Answer</p>
-                                                </button>
-                                                <p className="text-[#968CD9] font-bold">Medium</p>
-                                            </div>
-                                        </button>
-                                    </li>
-
-                                    <li className="w-full">
-                                        <button
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
-                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
-                                            <div className="flex items-center gap-3">
-                                                <Star className="text-[#c6c7f8] fill-current"/>
-                                                <p className="flex-grow">Difference between HashMap and Hashtable</p>
-                                            </div>
-                                            <div className="w-1/4 flex items-center justify-between">
-                                                <button
-                                                    className="flex items-center gap-2 p-2 rounded-md transform transition-colors duration-200 hover:bg-[#4a4a4d] hover:text-gray-200 focus:outline-none">
-                                                    <Book className="size-5"/>
-                                                    <p className="mr-4">Answer</p>
-                                                </button>
-
-                                                <p className="text-[#9c7eff] font-bold">Hard</p>
-                                            </div>
-                                        </button>
-                                    </li>
-
-                                    <li className="w-full">
-                                        <button
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
-                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
-                                            <div className="flex items-center gap-3">
-                                                <Star className=""/>
-                                                <p className="flex-grow">What is the Singleton Pattern?</p>
-                                            </div>
-                                            <div className="w-1/4 flex items-center justify-between">
-                                                <button
-                                                    className="flex p-2">
-                                                    <Book className="size-5"/>
-                                                    <p className="mr-4">Answer</p>
-                                                </button>
-                                                <p className="text-[#968CD9] font-bold">Medium</p>
-                                            </div>
-                                        </button>
-                                    </li>
-
-                                    <li className="w-full">
-                                        <button
-                                            className="relative flex items-center justify-between bg-[#2C2C30] rounded-md w-full h-[50px] px-4
-                   transform transition-transform duration-200 hover:scale-105 focus:outline-none">
-                                            <div className="flex items-center gap-3">
-                                                <Star className=""/>
-                                                <p className="flex-grow">Explain the use of the `volatile` keyword in
-                                                    Java</p>
-                                            </div>
-                                            <div className="w-1/4 flex items-center justify-between">
-                                                <button
-                                                    className="flex p-2">
-                                                    <Book className="size-5"/>
-                                                    <p className="mr-4">Answer</p>
-                                                </button>
-                                                <p className="text-[#968CD9] font-bold">Medium</p>
-                                            </div>
-                                        </button>
-                                    </li>
 
                                 </ul>
 
