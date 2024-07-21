@@ -49,11 +49,6 @@ export type QueryGetQuestionByIdArgs = {
   id: Scalars['Int']['input'];
 };
 
-
-export type QueryThemesArgs = {
-  depth?: InputMaybe<Scalars['Int']['input']>;
-};
-
 export type Question = {
   __typename?: 'Question';
   answers: Array<Scalars['String']['output']>;
@@ -88,25 +83,19 @@ export type Theme = {
 
 export type ThemeResultUnion = StatusMessage | Theme;
 
-export type GetThemesQueryVariables = Exact<{
-  depth: Scalars['Int']['input'];
-}>;
+export type GetThemesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetThemesQuery = { __typename?: 'Query', themes: Array<{ __typename?: 'StatusMessage' } | { __typename?: 'Theme', description: string, image: string, award: { __typename?: 'GraphQLAward', title: string, image: string, description: string } }> };
+export type GetThemesQuery = { __typename?: 'Query', themes: Array<{ __typename?: 'StatusMessage' } | { __typename?: 'Theme', title: string, description: string, image: string }> };
 
 
 export const GetThemesDocument = gql`
-    query GetThemes($depth: Int!) {
-  themes(depth: $depth) {
+    query GetThemes {
+  themes {
     ... on Theme {
+      title
       description
       image
-      award {
-        title
-        image
-        description
-      }
     }
   }
 }
@@ -124,11 +113,10 @@ export const GetThemesDocument = gql`
  * @example
  * const { data, loading, error } = useGetThemesQuery({
  *   variables: {
- *      depth: // value for 'depth'
  *   },
  * });
  */
-export function useGetThemesQuery(baseOptions: Apollo.QueryHookOptions<GetThemesQuery, GetThemesQueryVariables> & ({ variables: GetThemesQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+export function useGetThemesQuery(baseOptions?: Apollo.QueryHookOptions<GetThemesQuery, GetThemesQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<GetThemesQuery, GetThemesQueryVariables>(GetThemesDocument, options);
       }

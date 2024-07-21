@@ -14,7 +14,7 @@ export default function Page() {
 
     return (
         <div>
-            <Themes depth={2} />
+            <Themes  />
         </div>
     );
 };
