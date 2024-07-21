@@ -10,6 +10,7 @@ const ThemeDetails = () => {
 
     useEffect(() => {
         fetchThemeData(themeTitle);
+
     }, []);
 
     return (
