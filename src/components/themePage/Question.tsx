@@ -47,7 +47,7 @@ const Question: React.FC<QuestionProps> = ({ question }) => {
                 setIsFavorite(false);
             } catch (error) {
                 console.error('Ошибка при удалении из избранного:', error);
-                setIsFavorite(true); // Откатываем изменение в случае ошибки
+                setIsFavorite(true);
             } finally {
                 setIsLoading(false);
             }
