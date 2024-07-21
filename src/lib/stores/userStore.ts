@@ -37,7 +37,7 @@ interface UserData {
     addToFav: (questionId: number) => Promise<void>;
 }
 
-const getUserToken = (): string => {
+export const getUserToken = (): string => {
     let token = '';
 
     if (typeof window !== 'undefined') {
