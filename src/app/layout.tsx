@@ -6,8 +6,6 @@ import SimpleHeader from '@/components/header/SimpleHeader'
 import SideBar from '@/components/sidebar/SideBar'
 
 
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
