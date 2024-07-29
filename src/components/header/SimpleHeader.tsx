@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import Link from 'next/link'
 import useAuthStore from '@/lib/stores/authStore'
 import usePathStore from '@/lib/stores/pathStore'
@@ -17,12 +17,13 @@ import InputForm from '@/components/ui/Input/InputForm'
 import { useParams } from 'next/navigation'
 
 const SimpleHeader = () => {
-
-    const { isAuthorized, login, logout } = useAuthStore((state) => state)
-    const { updatePathState, isAuthorizing, isChatting } = usePathStore(
-        (state) => state,
+    const { isAuthorized, login, logout, updateAuth } = useAuthStore(
+        (state: any) => state,
     )
-    const { isSideBarOpened, toggleSidebar } = useSidebar((state) => state)
+    const { updatePathState, isAuthorizing, isChatting } = usePathStore(
+        (state: any) => state,
+    )
+    const { isSideBarOpened, toggleSidebar } = useSidebar((state: any) => state)
 
     const [inputText, setInputText] = useState('')
     const [isIconsLoaded, setIsIconsLoaded] = useState(false)
@@ -36,7 +37,6 @@ const SimpleHeader = () => {
             const currentPath = window.location.pathname
             updatePathState(currentPath)
             setIsIconsLoaded(true)
-
         }
     }, [updateAuth, logout])
 
@@ -155,14 +155,14 @@ const SimpleHeader = () => {
 
                                     <li>
                                         <Link href="/me">
-                                        <button className="icon-container block relative p-1">
+                                            <button className="icon-container block relative p-1">
                                                 <CircleUser
                                                     size={iconSize}
                                                     className="text-gray-200 cursor-pointer hover:text-white"
                                                 />
-                                            </Link>
-                                            <div className="h-full absolute inset-0 bg-gray-300 opacity-0 hover:opacity-10 transition-opacity duration-200 rounded-md"></div>
-                                        </button>
+
+                                                <div className="h-full absolute inset-0 bg-gray-300 opacity-0 hover:opacity-10 transition-opacity duration-200 rounded-md"></div>
+                                            </button>
                                         </Link>
                                     </li>
                                 </>
@@ -171,7 +171,6 @@ const SimpleHeader = () => {
                                     <li className="mr-4 hidden md:block">
                                         <Link href="/auth/login">
                                             <button className="bg-[#3d3d3d] rounded-lg px-3 py-1 text-gray-300 transition-all duration-200 transform hover:scale-105 hover:bg-gradient-to-tr hover:text-indigo-50  hover:rounded-md hover:from-[#3d3d3d] hover:via-[#3d3d3d] hover:to-[#363636] whitespace-nowrap">
-
                                                 Sign in
                                             </button>
                                         </Link>
