@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import useThemeData from '@/lib/stores/themeDataStore'
@@ -15,6 +16,8 @@ const ThemeDetails = () => {
     if (!data || !data.subthemes) {
         return <SpinnerUI />
     }
+
+    }, []);
 
     return (
         <>

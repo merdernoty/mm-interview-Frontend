@@ -7,9 +7,17 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            backgroundImage: {
+                'noise-light': "url('/noise-light.png')",
+                'obsidian-texture':"url('/obsidianTexture.png')",
+            },
             colors: {
                 mainBlack: '#1c1c1c',
-                blackUI: '#272727'
+                blackUI: '#272727',
+                grayViolet: '#868796',
+            },
+            screens: {
+                'lg': '1200px',
             },
             fontFamily: {
                 body: [

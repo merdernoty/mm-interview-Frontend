@@ -32,6 +32,7 @@ const Subtheme: React.FC<SubthemeProps> = ({data, subtheme }) => {
                     </button>
                 </div>
             </div>
+            <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]" />
             <div>
                 <ul>
                     {subtheme.questions.map((question) => (
@@ -46,3 +47,4 @@ const Subtheme: React.FC<SubthemeProps> = ({data, subtheme }) => {
 }
 
 export default Subtheme
+

@@ -1,7 +1,8 @@
 'use client'
-
+import client from "@/lib/graphQL/Client/apolloClient";
 import useAuth from '@/lib/stores/authStore'
 import { ChakraProvider } from '@chakra-ui/react'
+import { ApolloProvider } from '@apollo/client';
 import React from 'react'
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -12,5 +13,4 @@ export function Providers({ children }: { children: React.ReactNode }) {
         } else {
         }
     }, [token, isAuthorized])
-    return <ChakraProvider>{children}</ChakraProvider>
-}
+    return  <ApolloProvider client={client}><ChakraProvider>{children}</ChakraProvider></ApolloProvider>
