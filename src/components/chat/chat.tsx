@@ -1,59 +1,116 @@
-import React, { useState, useEffect } from 'react';
-import { CornerDownLeft } from 'lucide-react';
-import { usePathname, useSearchParams } from 'next/navigation';
-import useChat from '@/lib/stores/chatStore';
-import Message from './message';
+'use client'
+
+import React, { useState, useEffect, useMemo, useRef } from 'react'
+import { CornerDownLeft } from 'lucide-react'
+import { useParams, useRouter } from 'next/navigation'
+import useChat from '@/lib/stores/chatStore'
+import FirstMessage from './firstMessage'
+import Message from './message'
+import SpinnerUI from '../ui/spinner/spinner'
 
 function Chat() {
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
+    const {
+        data,
+        result,
+        feedback,
+        isLoading,
+        error,
+        fetchQuestion,
+        sendAnswer,
+    } = useChat()
+    const endOfMessagesRef = useRef<HTMLDivElement>(null)
+    const [content, setContent] = useState('')
+    const [messages, setMessages] = useState<
+        { content: string; role: 'user' | 'server' }[]
+    >([])
+    const router = useRouter()
+    const params = useParams<{
+        theme: string
+        subtheme: string
+        question: string
+    }>()
 
-    const [theme, setTheme] = useState<string | null>(null);
-    const [subtheme, setSubtheme] = useState<string | null>(null);
-    const [question, setQuestion] = useState<string | null>(null);
+    const fetchQuestionMemoized = useMemo(() => {
+        if (params.theme && params.subtheme && params.question) {
+            return {
+                theme: params.theme,
+                subtheme: params.subtheme,
+                question: params.question.replace(/%20/g, ' '),
+            }
+        }
+        return null
+    }, [params.theme, params.subtheme, params.question])
 
     useEffect(() => {
-        // Обновляем состояния на основе текущих параметров URL
-        const params = new URLSearchParams(searchParams);
-        const themeParam = params.get('theme');
-        const subthemeParam = params.get('subtheme');
-        const questionParam = params.get('question');
+        if (fetchQuestionMemoized) {
+            fetchQuestion(fetchQuestionMemoized)
+        } else {
+            router.push('/')
+        }
+        return () => {
+            useChat.setState({ data: '', isLoading: false, error: null })
+        }
+    }, [fetchQuestionMemoized, fetchQuestion, router])
 
-        setTheme(themeParam);
-        setSubtheme(subthemeParam);
-        setQuestion(questionParam);
-    }, [pathname, searchParams]);
+    useEffect(() => {
+        if (result) {
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { content: result, role: 'server' },
+            ])
+        }
+    }, [result])
 
-    const { data, isLoading, error, fetchMessage } = useChat();
+    useEffect(() => {
+        if (feedback) {
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { content: feedback, role: 'server' },
+            ])
+        }
+    }, [feedback])
 
-    const [content, setContent] = useState('');
-    const [isSend, setIsSend] = useState('');
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (!content.trim()) return;
+        if (content.trim()) {
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { content, role: 'user' },
+            ])
+            setContent('')
 
-        const message = {
-            role: 'user',
-            content: JSON.stringify({
-                messageL
-                theme: 'themeValue',
-                subtheme: 'subthemeValue',
-                question: 'questionValue'
+            await sendAnswer({
+                theme: params.theme || '',
+                subtheme: params.subtheme || '',
+                question: params.question || '',
+                answer: content,
             })
-        };
-
-        fetchMessage(message);
-        setIsSend(content);
-        setContent('');
-    };
+        }
+    }
+    useEffect(() => {
+        endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }, [messages])
 
     return (
-        <div>
-            {isLoading && <div>Loading...</div>}
-            {error && <div>Error: {error}</div>}
-            {data && <Message data={data} content={isSend} />}
-
+        <div className="flex flex-col h-screen">
+            <div className="flex-grow overflow-y-auto p-4">
+                {isLoading && (
+                    <div>
+                        <SpinnerUI />
+                    </div>
+                )}
+                {error && <div>Error: {error.message}</div>}
+                {data && !result && <FirstMessage data={{ question: data }} />}
+                {messages.map((msg, index) => (
+                    <Message
+                        key={index}
+                        content={msg.content}
+                        role={msg.role}
+                    />
+                ))}
+            </div>
+            <div ref={endOfMessagesRef} />
             <form
                 className="fixed bottom-0 left-0 w-full md:px-12 p-2 py-8 shadow-md"
                 onSubmit={handleSubmit}
@@ -77,7 +134,7 @@ function Chat() {
                 </div>
             </form>
         </div>
-    );
+    )
 }
 
-export default Chat;
+export default Chat

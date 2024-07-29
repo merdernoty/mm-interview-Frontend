@@ -22,7 +22,7 @@ const ThemeDetails = () => {
             <div className="flex">
                 <div className="flex-grow mr-8">
                     {data.subthemes.map((subtheme) => (
-                        <Subtheme data={data} key={subtheme.id} subtheme={subtheme} />
+                        <Subtheme data={data} key={subtheme.title} subtheme={subtheme} />
                     ))}
                 </div>
                 <div className="w-1/3 mt-12">
