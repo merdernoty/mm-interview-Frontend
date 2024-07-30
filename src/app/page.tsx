@@ -1,9 +1,11 @@
-import { Homepage } from '@/components/entity/homepage'
-
-export default function Home() {
+import React from 'react'
+import HomePage from '@/components/homePage/homePage'
+function page() {
     return (
         <>
-            <Homepage></Homepage>
+            <HomePage />
         </>
     )
 }
+
+export default page
