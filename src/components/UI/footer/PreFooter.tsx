@@ -1,44 +1,28 @@
 import React from 'react';
+import clsx from 'clsx';
 
 const PreFooter = () => {
-    let styles: { [key: string]: string } = {
-        backgroundImage: "radial-gradient(145% 105% at 45% 20%, transparent 40%, #63e 75%, #c8c8ff 95%)",
-        height: "400px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: "10px",
-        padding: "20px",
-        position: "relative",
-        opacity: "1",
-        boxShadow: "0px 20px 20px rgba(76, 44, 164, 0.2)",
-    };
+    const dividerClass = clsx(
+        'absolute top-0 left-1/5 w-1/2 border-t border-transparent',
+        'border-t-[1px] border-gradient-gray shadow-[0_1px_10px_rgba(76,44,164,0.8)]',
+        'before:block before:w-full before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-[#8a2be2] before:to-transparent'
+    );
 
-    let lineStyles1: { [key: string]: string } = {
-        top: "0",
-        zIndex: "0",
-        content: '""',
-        width: "50%",
-        position: "absolute",
-        borderTop: "1px solid",
-        borderImageSource: "linear-gradient(90deg, transparent, rgba(143, 120, 255, .5) 50%, transparent)",
-        borderImageSlice: "1",
-        filter: "drop-shadow:(0 1px 10px rgba(76, 44, 164, 0.8))",
-    };
-
+    const containerClass = clsx(
+        'bg-[radial-gradient(145%_105%_at_45%_20%,_transparent_40%,_#63e_75%,_#c8c8ff_95%)]',
+        'h-[250px] flex items-center justify-center rounded-lg p-5 shadow-[0_20px_20px_rgba(76,44,164,0.2)]'
+    );
 
     return (
         <>
-            <div className="styles_divider__elk7j" style={lineStyles1}/>
-            <div className="px-12 py-5 relative  ">
-                <div className="styles_divider__elk7j" style={lineStyles1}/>
-                    <div style={styles}>
-                        <div>
-                        </div>
+            <div className="relative my-5">
+            <div className={dividerClass} />
+                <div className="relative ">
+                    <div className={containerClass}>
+                        <div></div>
                     </div>
-
+                </div>
             </div>
-
         </>
     );
 };
