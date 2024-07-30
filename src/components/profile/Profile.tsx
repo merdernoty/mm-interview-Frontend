@@ -1,14 +1,14 @@
 'use client'
 import React, { useEffect } from 'react'
-import ActivityBento from '@/components/profile/activityBento'
+import ActivityBento from '@/components/profile/bento/activityBento'
 import useUser from '@/lib/stores/userStore'
 import { useParams } from 'next/navigation'
 
-import ProfileLeftBento from './profileLeftBento'
-import CompletedBento from './completedBento'
-import FavouriteBento from './favouriteBento'
-import PlaylistBento from './playlistBento'
-import EnergyBento from './energyBento'
+import ProfileLeftBento from './bento/profileLeftBento'
+import CompletedBento from './bento/completedBento'
+import FavouriteBento from './bento/favouriteBento'
+import PlaylistBento from './bento/playlistBento'
+import EnergyBento from './bento/energyBento'
 
 const Profile = () => {
     const { data, fetchUserDataByToken, fetchUserDataByUsername } = useUser()
