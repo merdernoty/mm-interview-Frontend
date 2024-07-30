@@ -15,6 +15,7 @@ const HomePage = () => {
                 />
                 </div>
             <ThemeList/>
+            <PreFooter></PreFooter>
         </>
     )
 }
