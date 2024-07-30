@@ -6,7 +6,7 @@ import Link from 'next/link'
 interface SubthemeProps {
     data: {
         title: string
-    };
+    }
     subtheme: {
         id: number
         title: string
@@ -18,7 +18,7 @@ interface SubthemeProps {
     }
 }
 
-const Subtheme: React.FC<SubthemeProps> = ({data, subtheme }) => {
+const Subtheme: React.FC<SubthemeProps> = ({ data, subtheme }) => {
     return (
         <div
             key={subtheme.id}
@@ -36,7 +36,10 @@ const Subtheme: React.FC<SubthemeProps> = ({data, subtheme }) => {
             <div>
                 <ul>
                     {subtheme.questions.map((question) => (
-                        <Link key={question.id}  href={`/chat/${data.title}/${subtheme.title}/${question.question}`}>
+                        <Link
+                            key={question.id}
+                            href={`/chat/${data.title}/${subtheme.title}/${question.question}`}
+                        >
                             <Question question={question} />
                         </Link>
                     ))}
@@ -47,4 +50,3 @@ const Subtheme: React.FC<SubthemeProps> = ({data, subtheme }) => {
 }
 
 export default Subtheme
-

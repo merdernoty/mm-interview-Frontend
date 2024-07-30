@@ -4,8 +4,7 @@ import './globals.css'
 import { Providers } from './providers'
 import SimpleHeader from '@/components/header/SimpleHeader'
 import SideBar from '@/components/sidebar/SideBar'
-import React from "react";
-
+import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,13 +20,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={ inter.className}>
+            <body className={inter.className}>
                 <Providers>
                     <SideBar></SideBar>
                     <SimpleHeader></SimpleHeader>
                     {children}
                 </Providers>
-
             </body>
         </html>
     )

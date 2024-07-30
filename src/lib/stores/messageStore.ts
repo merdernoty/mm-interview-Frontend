@@ -8,7 +8,7 @@ type Message = {
 
 type MessageState = {
     messages: Message[]
-    sendMessage: (content: any) => void
+    sendMessage: (content: any) => void // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 const useMessage = create<MessageState>((set) => ({

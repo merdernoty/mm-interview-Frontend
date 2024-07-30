@@ -37,7 +37,9 @@ type Question {
     subtheme: Subtheme!
 }
 
-"""The difficulty level of the question"""
+"""
+The difficulty level of the question
+"""
 enum Difficulty {
     EASY
     MEDIUM

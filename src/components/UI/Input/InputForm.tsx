@@ -1,25 +1,25 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react'
 
 interface InputFormProps {
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 const InputForm: React.FC<InputFormProps> = ({ onChange }) => {
-    const [isFocused, setIsFocused] = useState(false);
-    const [inputText, setInputText] = useState('');
+    const [isFocused, setIsFocused] = useState(false)
+    const [inputText, setInputText] = useState('')
 
     const handleFocus = () => {
-        setIsFocused(true);
-    };
+        setIsFocused(true)
+    }
 
     const handleBlur = () => {
-        setIsFocused(false);
-    };
+        setIsFocused(false)
+    }
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setInputText(event.target.value);
-        onChange(event);
-    };
+        setInputText(event.target.value)
+        onChange(event)
+    }
 
     return (
         <>
@@ -41,7 +41,7 @@ const InputForm: React.FC<InputFormProps> = ({ onChange }) => {
                 }
             `}</style>
         </>
-    );
-};
+    )
+}
 
-export default InputForm;
+export default InputForm

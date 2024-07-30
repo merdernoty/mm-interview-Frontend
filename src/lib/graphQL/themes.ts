@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from '@apollo/client'
 
 export const GET_THEMES = gql`
     query GetThemes {
@@ -7,8 +7,7 @@ export const GET_THEMES = gql`
                 title
                 description
                 image
-                
             }
         }
     }
-`;
+`

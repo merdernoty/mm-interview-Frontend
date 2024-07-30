@@ -21,13 +21,15 @@ const SignUpForm = () => {
         }
     }, [token, isAuthorized])
 
-    const handlePasswordChange = (e: any) => {
+    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newPassword = e.target.value
         setPassword(newPassword)
         setIsButtonDisabled(newPassword !== repeatPassword)
     }
 
-    const handleRepeatPasswordChange = (e: any) => {
+    const handleRepeatPasswordChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+    ) => {
         const newRepeatPassword = e.target.value
         setRepeatPassword(newRepeatPassword)
         setIsButtonDisabled(password !== newRepeatPassword)

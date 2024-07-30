@@ -1,9 +1,10 @@
+/* eslint-disable prettier/prettier */
 import create from 'zustand'
 import { persist, PersistOptions } from 'zustand/middleware'
 import { axiosURL } from '@/lib/axios/axios'
 
 interface AuthState {
-    data: any | null
+    data: any | null // eslint-disable-line @typescript-eslint/no-explicit-any
     token: string | null
     isAuthorized: boolean
     isLoading: boolean
@@ -22,8 +23,8 @@ interface AuthState {
 type AuthStatePersist = Pick<AuthState, 'token'>
 
 const useAuth = create<AuthState>(
-    (persist as any)(
-        (set: any) => ({
+    (persist as any)(  // eslint-disable-line @typescript-eslint/no-explicit-any
+        (set: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
             data: null,
             token: null,
             isAuthorized: false,
@@ -47,7 +48,7 @@ const useAuth = create<AuthState>(
                         isAuthorized: true,
                         isLoading: false,
                     })
-                } catch (error: any) {
+                } catch (error: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
                     const errorMessage =
                         error.response?.data?.message ||
                         error.message ||
@@ -68,7 +69,7 @@ const useAuth = create<AuthState>(
                         isAuthorized: true,
                         isLoading: false,
                     })
-                } catch (error: any) {
+                } catch (error: any) {// eslint-disable-line @typescript-eslint/no-explicit-any
                     const errorMessage =
                         error.response?.data?.message ||
                         error.message ||
@@ -107,7 +108,7 @@ const useAuth = create<AuthState>(
                         localStorage.removeItem('token')
                         set({ isAuthorized: false, token: null, data: null })
                     }
-                } catch (error: any) {
+                } catch (error: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
                     const errorMessage =
                         error.response?.data?.message ||
                         error.message ||

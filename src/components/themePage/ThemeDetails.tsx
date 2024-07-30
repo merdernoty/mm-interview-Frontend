@@ -21,13 +21,17 @@ const ThemeDetails = () => {
             <h1 className="text-2xl font-bold mb-4">{data.title}</h1>
             <div className="flex">
                 <div className="flex-grow mr-8">
-                    {data.subthemes.map((subtheme: any) => (
-                        <Subtheme
-                            data={data}
-                            key={subtheme.title}
-                            subtheme={subtheme}
-                        />
-                    ))}
+                    {data.subthemes.map(
+                        (
+                            subtheme: any, // eslint-disable-line @typescript-eslint/no-explicit-any
+                        ) => (
+                            <Subtheme
+                                data={data}
+                                key={subtheme.title}
+                                subtheme={subtheme}
+                            />
+                        ),
+                    )}
                 </div>
                 <div className="w-1/3 mt-12">
                     <ul>
@@ -47,7 +51,10 @@ const ThemeDetails = () => {
                             <h2 className="text-xl font-semibold">Related</h2>
                             <ul className="mt-2 space-y-2">
                                 {data.relatedThemes.map(
-                                    (theme: any, index: any) => (
+                                    (
+                                        theme: any, // eslint-disable-line @typescript-eslint/no-explicit-any
+                                        index: any, // eslint-disable-line @typescript-eslint/no-explicit-any
+                                    ) => (
                                         <li
                                             key={index}
                                             className="flex items-center"

@@ -10,7 +10,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
     React.useEffect(() => {
         if (!isAuthorized) {
             updateAuth()
-        } else {
         }
     }, [token, isAuthorized])
     return (

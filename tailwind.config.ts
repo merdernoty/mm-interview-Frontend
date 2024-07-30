@@ -9,7 +9,7 @@ const config: Config = {
         extend: {
             backgroundImage: {
                 'noise-light': "url('/noise-light.png')",
-                'obsidian-texture':"url('/obsidianTexture.png')",
+                'obsidian-texture': "url('/obsidianTexture.png')",
             },
             colors: {
                 mainBlack: '#1c1c1c',
@@ -17,7 +17,7 @@ const config: Config = {
                 grayViolet: '#868796',
             },
             screens: {
-                'lg': '1200px',
+                lg: '1200px',
             },
             fontFamily: {
                 body: [

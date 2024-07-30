@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import Link from 'next/link'
 import useAuthStore from '@/lib/stores/authStore'
 import usePathStore from '@/lib/stores/pathStore'
@@ -16,20 +16,18 @@ import {
 import InputForm from '@/components/ui/Input/InputForm'
 import { useParams } from 'next/navigation'
 
-const SimpleHeader = () => {
-    const { isAuthorized, login, logout, updateAuth } = useAuthStore(
-        (state: any) => state,
-    )
+const SimpleHeader: React.FC = () => {
+    const { isAuthorized, logout, updateAuth } = useAuthStore((state) => state)
     const { updatePathState, isAuthorizing, isChatting } = usePathStore(
-        (state: any) => state,
+        (state) => state,
     )
-    const { isSideBarOpened, toggleSidebar } = useSidebar((state: any) => state)
+    const { isSideBarOpened, toggleSidebar } = useSidebar((state) => state)
 
-    const [inputText, setInputText] = useState('')
-    const [isIconsLoaded, setIsIconsLoaded] = useState(false)
+    const [inputText, setInputText] = useState('') // eslint-disable-line @typescript-eslint/no-unused-vars
+    const [isIconsLoaded, setIsIconsLoaded] = useState(false) // eslint-disable-line @typescript-eslint/no-unused-vars
     const [showInput, setShowInput] = useState(false)
 
-    const { theme, subtheme, questionId } = useParams()
+    const { theme, subtheme, questionId } = useParams() // eslint-disable-line @typescript-eslint/no-unused-vars
     const iconSize = 25
 
     useLayoutEffect(() => {
@@ -44,8 +42,8 @@ const SimpleHeader = () => {
         setShowInput(!showInput)
     }
 
-    const handleInputChange = (event: any) => {
-        setInputText(event.target.value)
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputText(e.target.value)
     }
 
     return (

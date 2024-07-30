@@ -1,49 +1,49 @@
-import { create } from 'zustand';
-import { axiosURL } from '../axios/axios';
+import { create } from 'zustand'
+import { axiosURL } from '../axios/axios'
 
 interface State {
-    data: string;
-    result: string;
-    feedback: string; // Новое состояние для хранения обратной связи
-    isLoading: boolean;
-    error: any;
-    cachedQuestions: Record<string, string>;
+    data: string
+    result: string
+    feedback: string
+    isLoading: boolean
+    error: any // eslint-disable-line @typescript-eslint/no-explicit-any
+    cachedQuestions: Record<string, string>
 }
 
 interface Question {
-    theme: string;
-    subtheme: string;
-    question: string;
+    theme: string
+    subtheme: string
+    question: string
 }
 
 interface Answer {
-    theme: string;
-    subtheme: string;
-    question: string;
-    answer: string;
+    theme: string
+    subtheme: string
+    question: string
+    answer: string
 }
 
 interface Actions {
-    fetchQuestion: (question: Question) => Promise<void>;
-    sendAnswer: (answer: Answer) => Promise<void>;
+    fetchQuestion: (question: Question) => Promise<void>
+    sendAnswer: (answer: Answer) => Promise<void>
 }
 
 const useChat = create<State & Actions>((set, get) => ({
     data: '',
     result: '',
-    feedback: '', // Изначально пустая обратная связь
+    feedback: '',
     isLoading: false,
     error: null,
     cachedQuestions: {},
     fetchQuestion: async (question: Question) => {
-        set({ isLoading: true, error: null });
+        set({ isLoading: true, error: null })
 
-        const cacheKey = `${question.theme}-${question.subtheme}-${question.question}`;
-        const cachedQuestion = get().cachedQuestions[cacheKey];
+        const cacheKey = `${question.theme}-${question.subtheme}-${question.question}`
+        const cachedQuestion = get().cachedQuestions[cacheKey]
 
         if (cachedQuestion) {
-            set({ data: cachedQuestion, isLoading: false });
-            return;
+            set({ data: cachedQuestion, isLoading: false })
+            return
         }
 
         try {
@@ -54,10 +54,10 @@ const useChat = create<State & Actions>((set, get) => ({
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                }
-            );
+                },
+            )
 
-            const responseData = response.data.question;
+            const responseData = response.data.question
             set((state) => ({
                 data: responseData,
                 isLoading: false,
@@ -65,13 +65,13 @@ const useChat = create<State & Actions>((set, get) => ({
                     ...state.cachedQuestions,
                     [cacheKey]: responseData,
                 },
-            }));
+            }))
         } catch (error) {
-            set({ error: error, isLoading: false });
+            set({ error: error, isLoading: false })
         }
     },
     sendAnswer: async (answer: Answer) => {
-        set({ isLoading: false, error: null });
+        set({ isLoading: false, error: null })
 
         try {
             const response = await axiosURL.post(
@@ -81,16 +81,20 @@ const useChat = create<State & Actions>((set, get) => ({
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                }
-            );
+                },
+            )
 
-            const responseData = response.data.result; // Предположим, что сервер возвращает результат в `result`
-            const feedbackData = response.data.feedback; // Обратная связь от сервера
-            set({ result: responseData, feedback: feedbackData, isLoading: false });
+            const responseData = response.data.result // Предположим, что сервер возвращает результат в `result`
+            const feedbackData = response.data.feedback // Обратная связь от сервера
+            set({
+                result: responseData,
+                feedback: feedbackData,
+                isLoading: false,
+            })
         } catch (error) {
-            set({ error: error, isLoading: false });
+            set({ error: error, isLoading: false })
         }
     },
-}));
+}))
 
-export default useChat;
+export default useChat

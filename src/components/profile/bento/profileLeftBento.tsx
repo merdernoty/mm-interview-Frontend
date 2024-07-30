@@ -1,17 +1,6 @@
 import React from 'react'
-import {
-    Book,
-    Cat,
-    ChevronRight,
-    Github,
-    Lightbulb,
-    ListEnd,
-    Medal,
-    Star,
-    Trophy,
-    Zap,
-} from 'lucide-react'
-import Image from 'next/image';
+import { Cat, Github, Medal, Trophy } from 'lucide-react'
+import Image from 'next/image'
 
 const ProfileLeftBento = () => {
     return (
@@ -21,13 +10,13 @@ const ProfileLeftBento = () => {
                     <div className="flex justify-center">
                         <div className="w-[90%] h-[120px] flex justify-between">
                             <div className="w-[120px] h-full bg-[#c6c7f8] rounded-md">
-                            <Image
-                                        src="/avatarka.jpeg"
-                                        alt="avatar"
-                                        width={120}
-                                        height={120}
-                                        className="w-full h-full object-cover rounded-md"
-                                    />
+                                <Image
+                                    src="/avatarka.jpeg"
+                                    alt="avatar"
+                                    width={120}
+                                    height={120}
+                                    className="w-full h-full object-cover rounded-md"
+                                />
                             </div>
 
                             <div className="w-[60%] h-[145px] flex flex-col justify-between text-white pl-5">
@@ -87,11 +76,9 @@ const ProfileLeftBento = () => {
                         <Cat className="size-1/5 text-white" />
                         <Trophy className="size-1/5 text-white" />
                         <Cat className="size-1/5 text-white" />
-
                         <Trophy className="size-1/5 text-white" />
                         <Medal className="size-1/5 text-white" />
                         <Cat className="size-1/5 text-white" />
-
                         <Medal className="size-1/5 text-white" />
                     </div>
                 </div>
