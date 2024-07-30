@@ -18,7 +18,7 @@ function SpinnerUI() {
                 <Spinner />
             ) : (
                 <div>
-                    Your theme doesn't exist 😰
+                    Your theme doesnt exist 😰
                     <br />
                     <div className="flex justify-center p-5">
                         <Button>

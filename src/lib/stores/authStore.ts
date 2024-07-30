@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import create from 'zustand'
+import { create } from 'zustand';
 import { persist, PersistOptions } from 'zustand/middleware'
 import { axiosURL } from '@/lib/axios/axios'
 

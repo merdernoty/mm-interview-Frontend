@@ -21,9 +21,9 @@ const ProfileLeftBento = () => {
 
                             <div className="w-[60%] h-[145px] flex flex-col justify-between text-white pl-5">
                                 <div className="pt-2">
-                                    <p>"data.username"</p>
+                                    <p>data.username</p>
                                     <p className="text-[#bbbbbc]">
-                                        "data.username"
+                                        data.username
                                     </p>
                                 </div>
                                 <p className="mb-5 text-[#bbbbbc]">Rank: 52</p>

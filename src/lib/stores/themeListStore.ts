@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import create from 'zustand'
+import { create } from 'zustand';
 import { axiosURL } from '@/lib/axios/axios'
 
 interface ThemeList {
