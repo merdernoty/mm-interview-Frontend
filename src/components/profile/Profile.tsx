@@ -23,27 +23,27 @@ const Profile = () => {
         }
     }, []);
 
-    const getUserToken = () => {
-        let token = '';
+    // const getUserToken = () => {
+    //     let token = '';
 
-        if (typeof window !== 'undefined') {
-            const tokenString = localStorage.getItem('token');
-            if (tokenString) {
-                try {
-                    const tokenObject = JSON.parse(tokenString);
-                    token = tokenObject?.state?.token || '';
-                } catch (error) {
-                    console.error('Ошибка при разборе токена из localStorage:', error);
-                }
-            }
-        }
+    //     if (typeof window !== 'undefined') {
+    //         const tokenString = localStorage.getItem('token');
+    //         if (tokenString) {
+    //             try {
+    //                 const tokenObject = JSON.parse(tokenString);
+    //                 token = tokenObject?.state?.token || '';
+    //             } catch (error) {
+    //                 console.error('Ошибка при разборе токена из localStorage:', error);
+    //             }
+    //         }
+    //     }
 
-        return token;
-    };
+    //     return token;
+    // };
 
     return (
         <>
-            {data ? (<>
+            {!data ? (<>
                 <div className="w-full flex gap-5 mt-5 mb-10">
                     <div className="flex-shrink-0">
                         <div className="w-[300px] h-[800px] rounded-md bg-[#1e1e22]">
@@ -59,8 +59,8 @@ const Profile = () => {
                                         <div
                                             className="w-[60%] h-[145px] flex flex-col justify-between text-white pl-5">
                                             <div className="pt-2">
-                                                <p>{data.username}</p>
-                                                <p className="text-[#bbbbbc]">{data.username}</p>
+                                                <p>"data.username"</p>
+                                                <p className="text-[#bbbbbc]">"data.username"</p>
                                             </div>
                                             <p className="mb-5 text-[#bbbbbc]">Rank: 52</p>
                                         </div>
@@ -158,44 +158,43 @@ const Profile = () => {
                                                     )}
                                                 </>
                                             ) : (
-                                                <p className="text-grayViolet text-left">Haven't added any question to
-                                                    favourite</p>
+                                                <p className="text-grayViolet text-left">Empty</p>
                                             )}
 
 
                                     </div>
                                     <div className="mt-4 ml-5"></div>
                                 </button>
-
                                 <button
-                                    className="h-[120px] w-full lg:w-1/3 bg-[#1e1e22] rounded-md transform transition-transform duration-200 hover:scale-105 active:scale-95">
-                                    <div className="flex h-1/6 gap-4 ml-5 mt-4">
-                                        <ListEnd className="text-[#c6c7f8]"/>
+                                    className="h-[120px] w-full lg:w-1/3 bg-[#1e1e22] rounded-md transform transition-transform duration-200 hover:scale-105 active:scale-95 flex flex-col">
+                                    <div className="flex h-1/6 gap-4 ml-5 mt-4 items-start">
+                                        <ListEnd className="text-[#c6c7f8] "/>
                                         <p className="text-[#D6C6F8] font-bold">playlists</p>
                                     </div>
-                                    <div className="mt-4 ml-5">
-                                        {data && data.info && data.info.favoriteQuestions && data.info.favoriteQuestions.length > 0 ? (
-                                            <>
-                                                {data.info.favoriteQuestions[0] && (
-                                                    <p className="text-grayViolet text-left truncate max-w-[200px]">
-                                                        {data.info.favoriteQuestions[0].question}
-                                                    </p>
-                                                )}
-                                                {data.info.favoriteQuestions[1] && (
-                                                    <p className="text-grayViolet text-left truncate max-w-[150px]">
-                                                        {data.info.favoriteQuestions[1].question}
-                                                    </p>
-                                                )}
-                                            </>
-                                        ) : (
-                                            <p className="text-grayViolet text-left">Haven't added any question to
-                                                favourite</p>
-                                        )}
+
+                                        <div className="mt-4 ml-5">
+                                            {data && data.info && data.info.favoriteQuestions && data.info.favoriteQuestions.length > 0 ? (
+                                                <>
+                                                    {data.info.favoriteQuestions[0] && (
+                                                        <p className="text-grayViolet text-left truncate max-w-[200px]">
+                                                            {data.info.favoriteQuestions[0].question}
+                                                        </p>
+                                                    )}
+                                                    {data.info.favoriteQuestions[1] && (
+                                                        <p className="text-grayViolet text-left truncate max-w-[150px]">
+                                                            {data.info.favoriteQuestions[1].question}
+                                                        </p>
+                                                    )}
+                                                </>
+                                            ) : (
+                                                <p className="text-grayViolet text-left">Empty</p>
+                                            )}
 
 
                                     </div>
                                     <div className="mt-4 ml-5"></div>
                                 </button>
+                               
 
 
                                 <div

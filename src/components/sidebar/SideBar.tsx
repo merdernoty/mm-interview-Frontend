@@ -21,7 +21,6 @@ const SideBar = () => {
                     <button>
                         <Link href="/">
                             <div className="flex items-center">
-                                {/*<PiggyBank size={40} />*/}
                                 <img src={"https://i.pinimg.com/564x/4b/4a/4c/4b4a4c78ccae2a9de6d54d1922e53083.jpg"}/>
                             </div>
                         </Link>
