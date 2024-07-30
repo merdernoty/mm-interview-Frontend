@@ -1,4 +1,4 @@
-import Container from '@/components/ui/container/Container'
+import Container from '@/components/ui/Container/Container'
 // import Profile from '@/components/profile/Profile'
 
 export default function page() {
