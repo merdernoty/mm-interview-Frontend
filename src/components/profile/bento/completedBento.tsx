@@ -8,7 +8,7 @@ import {
 
 const CompletedBento = ({ data }) => {
   return (
-    <div className="flex-1 bg-[#1e1e22] rounded-md h-[400px]">
+    <div className="flex-1 bg-[#1e1e22] rounded-md min-h-[375px]">
       <div className="w-full h-[50px] bg-[#1e1e22] flex items-center justify-between px-8 text-grayViolet rounded-md">
         <p>Completed</p>
         <button className="flex transition-colors duration-200 hover:text-[#B197EB] hover:bg-[#1e1e22]">

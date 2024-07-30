@@ -4,7 +4,6 @@ const FavoriteModal = ({ isOpen, onClose, favoriteQuestions }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
-    // Закрыть модальное окно при клике вне его области
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         onClose();
@@ -12,8 +11,12 @@ const FavoriteModal = ({ isOpen, onClose, favoriteQuestions }) => {
     };
 
     if (isOpen) {
+      document.body.style.overflow = 'hidden'; // Блокировка прокрутки фона
       document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.body.style.overflow = ''; // Разблокировка прокрутки фона
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
     }
   }, [isOpen, onClose]);
 
@@ -21,9 +24,9 @@ const FavoriteModal = ({ isOpen, onClose, favoriteQuestions }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div ref={modalRef} className="bg-gray-700 p-5 w-1/2 h-4/6 file:rounded-md relative">
+      <div ref={modalRef} className="bg-gray-700 p-5 w-1/2 h-4/6 rounded-md relative overflow-auto">
         <button onClick={onClose} className="absolute top-2 right-2 text-xl">✕</button>
-        <h2 className="text-xl font-bold mb-4">Favorite Questions</h2>
+        <h2 className="text-xl font-bold mb-4">Favorite Questions2</h2>
         <ul>
           {favoriteQuestions.length > 0 ? (
             favoriteQuestions.map((question, index) => (
