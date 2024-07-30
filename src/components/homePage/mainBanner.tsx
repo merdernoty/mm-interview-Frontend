@@ -3,7 +3,7 @@ import Spline from '@splinetool/react-spline/next'
 
 const MainBanner = () => {
     return (
-        <div className="h-96 w-full bg-violet-300 flex">
+        <div className="h-96 w-full bg-violet-300 flex rounded-md">
             
             <div className="flex-1 p-4">
                 <h1 className="text-2xl font-bold text-white">Заголовок</h1>

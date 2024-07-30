@@ -9,11 +9,12 @@ import Container  from '@/components/ui/container/Container'
 const HomePage = () => {
     return (
         <>
+        <Container>
             <MainBanner />
-            <Container>
-                <ThemeList />
+                <ThemeList/>
+                <PreFooter/>
             </Container>
-            <PreFooter></PreFooter>
+           
         </>
     );
 }
