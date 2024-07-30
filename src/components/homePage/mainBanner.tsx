@@ -1,5 +1,5 @@
 import React from 'react'
-import Spline from '@splinetool/react-spline/next'
+//import Spline from '@splinetool/react-spline/next'
 
 const MainBanner = () => {
     return (
@@ -12,7 +12,7 @@ const MainBanner = () => {
             </div>
 
             <div className="flex-1">
-                <Spline scene="https://prod.spline.design/hu4zPKRYKZVlbKNB/scene.splinecode" />
+                {/* <Spline scene="https://prod.spline.design/hu4zPKRYKZVlbKNB/scene.splinecode" /> */}
             </div>
         </div>
     )

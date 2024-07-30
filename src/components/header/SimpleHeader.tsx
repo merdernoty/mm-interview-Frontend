@@ -13,7 +13,7 @@ import {
     Star,
     History,
 } from 'lucide-react'
-import InputForm from '@/components/ui/Input/InputForm'
+import InputForm from '../ui/Input/InputForm'
 import { useParams } from 'next/navigation'
 
 const SimpleHeader: React.FC = () => {
