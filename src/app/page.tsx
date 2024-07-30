@@ -6,7 +6,6 @@ import Spline from '@splinetool/react-spline/next'
 function page() {
     return (
         <>
-        
             <HomePage />
         </>
     )
