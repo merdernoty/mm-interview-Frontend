@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 const PreFooter = () => {
     const dividerClass = clsx(
-        'absolute top-0 left-1/4 w-1/2 border-t border-transparent',
+        'absolute top-0 left-1/5 w-1/2 border-t border-transparent',
         'border-t-[1px] border-gradient-gray shadow-[0_1px_10px_rgba(76,44,164,0.8)]',
         'before:block before:w-full before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-[#8a2be2] before:to-transparent'
     );
