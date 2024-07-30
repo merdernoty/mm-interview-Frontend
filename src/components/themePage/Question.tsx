@@ -7,7 +7,6 @@ interface QuestionProps {
         id: number
         question: string
         answers: string[]
-        difficulty: string
     }
 }
 
@@ -90,7 +89,7 @@ const Question: React.FC<QuestionProps> = ({ question }) => {
                             <p className="mr-4">Answer</p>
                         </button>
 
-                        <p
+                        {/* <p
                             className={`font-bold ${
                                 question.difficulty === 'Easy'
                                     ? 'text-[#CBBCF3]'
@@ -102,7 +101,7 @@ const Question: React.FC<QuestionProps> = ({ question }) => {
                             }`}
                         >
                             {question.difficulty}
-                        </p>
+                        </p> */}
                     </div>
                 </button>
             </li>

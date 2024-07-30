@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React, { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import useThemeData from '@/lib/stores/themeDataStore'

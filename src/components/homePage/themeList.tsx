@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGetThemesQuery } from '@/lib/generated/types'
+import { useGetThemesQuery } from '@/generated/types'
 import Link from 'next/link'
 
 const ThemeList = () => {

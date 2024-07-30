@@ -6,7 +6,7 @@ import { useParams, useRouter } from 'next/navigation'
 import useChat from '@/lib/stores/chatStore'
 import FirstMessage from './firstMessage'
 import Message from './message'
-import SpinnerUI from '../ui/spinner/spinner'
+import SpinnerUI from '@/components/ui/spinner/spinner'
 
 function Chat() {
     const {
