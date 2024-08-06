@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { create } from 'zustand';
+import { createStore } from 'zustand/vanilla'
 import { axiosURL } from '@/lib/axios/axios'
 
 interface ThemeList {
@@ -14,7 +14,7 @@ interface ThemeListState {
     fetchThemes: () => Promise<void>
 }
 
-const useThemeList = create<ThemeListState>((set) => ({
+const useThemeList = createStore<ThemeListState>((set) => ({
     data: null,
     isLoading: false,
     error: null,

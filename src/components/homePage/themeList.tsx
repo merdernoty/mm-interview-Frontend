@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { useGetThemesQuery } from '@/generated/types'
 import Link from 'next/link'
