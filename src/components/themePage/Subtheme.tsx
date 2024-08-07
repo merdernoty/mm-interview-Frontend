@@ -18,35 +18,27 @@ interface SubthemeProps {
     }
 }
 
-const Subtheme: React.FC<SubthemeProps> = ({ data, subtheme }) => {
+const Subtheme: React.FC<SubthemeProps> = ({ subtheme }) => {
     return (
-        <div
-            key={subtheme.id}
-            className="w-[850px] h-auto bg-[#1A1A1A] rounded-[16px] mt-[50px] border-2 border-[#2C2C2C]"
-        >
-            <div className="h-[50px] w-full bg-[#2C2C2C] rounded-t-[16px] flex items-center justify-between pl-4 pr-4">
-                <div>{subtheme.title}</div>
-                <div className="flex items-center">
-                    <button>
-                        <Shuffle />
-                    </button>
-                </div>
+        <div key={subtheme.id} className="flex-1 bg-[#1e1e22] rounded-md mt-[50px]  ">
+            <div className="w-full h-[50px] flex items-center justify-between px-8 text-grayViolet rounded-t-md">
+                <p>{subtheme.title}</p>
+                <button className="flex justify-center items-center transition-colors duration-200 hover:text-[#B197EB] hover:bg-[#2C2C30]">
+                    <p className="text-nowrap">shuffle</p>
+                    <Shuffle className="stroke-[1.5px] ml-2 w-4 h-4" />
+
+                </button>
             </div>
             <hr className="border-t border-[#363639] mb-2 mx-auto w-[98%]" />
             <div>
-                <ul>
-                    {subtheme.questions.map((question) => (
-                        <Link
-                            key={question.id}
-                            href={`/chat/${data.title}/${subtheme.title}/${question.question}`}
-                        >
-                            <Question question={question} />
-                        </Link>
+                <ul className="m-0 p-4 flex flex-col items-center gap-2">
+                    {subtheme.questions.map(question => (
+                        <Question key={question.id} question={question} />
                     ))}
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Subtheme
