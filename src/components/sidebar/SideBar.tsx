@@ -3,6 +3,7 @@ import React from 'react'
 import useSidebar from '@/lib/stores/sidebarStore'
 import { Book, GraduationCap, MessageSquareText, Dot } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 const SideBar = () => {
     const { isSideBarOpened, toggleSidebar } = useSidebar() // eslint-disable-line @typescript-eslint/no-unused-vars
     const iconSize = 22
@@ -15,10 +16,11 @@ const SideBar = () => {
                     <button>
                         <Link href="/">
                             <div className="flex items-center">
-                                <img
-                                    src={
-                                        'https://i.pinimg.com/564x/4b/4a/4c/4b4a4c78ccae2a9de6d54d1922e53083.jpg'
-                                    }
+                                <Image
+                                    src="/logo.png"
+                                    alt="logo"
+                                    height={50}
+                                    width={50}
                                 />
                             </div>
                         </Link>
