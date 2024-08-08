@@ -10,9 +10,5 @@ export function Providers({ children }: { children: React.ReactNode }) {
             updateAuth()
         }
     }, [token, isAuthorized])
-    return (
-
-            <ChakraProvider>{children}</ChakraProvider>
-
-    )
+    return <ChakraProvider>{children}</ChakraProvider>
 }

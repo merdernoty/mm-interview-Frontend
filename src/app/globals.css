@@ -12,11 +12,9 @@ body {
     height: 8px;
 }
 
-
-
 ::-webkit-scrollbar-thumb {
     background-color: #ae9cef;
-    border-radius:2px;
+    border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

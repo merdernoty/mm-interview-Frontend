@@ -2,13 +2,15 @@ import React from 'react'
 import { Cat, Github, Medal, Trophy } from 'lucide-react'
 import Image from 'next/image'
 
-
 interface ProfileLeftBentoProps {
-    username: string;
-    email: string;
+    username: string
+    email: string
 }
 
-const ProfileLeftBento: React.FC<ProfileLeftBentoProps> = ({ username, email }) => {
+const ProfileLeftBento: React.FC<ProfileLeftBentoProps> = ({
+    username,
+    email,
+}) => {
     return (
         <div className="flex-shrink-0">
             <div className="w-[300px] h-[800px] rounded-md bg-[#1e1e22]">
@@ -28,9 +30,7 @@ const ProfileLeftBento: React.FC<ProfileLeftBentoProps> = ({ username, email }) 
                             <div className="w-[60%] h-[145px] flex flex-col justify-between text-white pl-5">
                                 <div className="pt-2">
                                     <p>{username}</p>
-                                    <p className="text-[#bbbbbc]">
-                                        {email}
-                                    </p>
+                                    <p className="text-[#bbbbbc]">{email}</p>
                                 </div>
                                 <p className="mb-5 text-[#bbbbbc]">Rank: 52</p>
                             </div>

@@ -1,14 +1,12 @@
 'use client'
-import React, {useEffect} from 'react'
-//import { useGetThemesQuery } from '@/generated/types'
+import React, { useEffect } from 'react'
+
 import Link from 'next/link'
 import useThemeList from '@/lib/stores/themeListStore'
 
 const ThemeList = () => {
-    // const { loading, error, data } = useGetThemesQuery()
-    const { data, isLoading, error, fetchThemes } = useThemeList()
+    const { data, isLoading, fetchThemes } = useThemeList()
 
-    // Загрузка данных при первом рендере
     useEffect(() => {
         fetchThemes()
     }, [fetchThemes])
@@ -39,7 +37,6 @@ const ThemeList = () => {
                     </div>
                 ))}
             </div>
-
         </>
     )
 }
