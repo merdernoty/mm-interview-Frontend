@@ -14,6 +14,7 @@ interface SubthemeProps {
             id: number
             question: string
             answers: string[]
+            difficulty: string
         }[]
     }
 }
