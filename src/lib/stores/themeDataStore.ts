@@ -1,7 +1,6 @@
 import { create } from 'zustand'
 import { axiosURL } from '../axios/axios'
 
-// Интерфейсы для данных
 interface Question {
     id: number
     question: string
