@@ -41,7 +41,7 @@ const MainBanner = () => {
                     </div>
                 </div>
 
-                <div className=" z-1 absolute top-0 right-0 h-[500px] w-[50%]">
+                <div className=" z-2 absolute top-0 right-0 h-[500px] w-[50%]">
                     <Spline scene="https://prod.spline.design/x4WR8KAckagUmF9o/scene.splinecode" />
                 </div>
             </div>
