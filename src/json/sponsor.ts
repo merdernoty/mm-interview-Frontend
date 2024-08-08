@@ -13,5 +13,5 @@ export const sponsorData = [
     { image: '/swift.png' },
     { image: '/swift.png' },
     { image: '/swift.png' },
-    { image: '/swift.png' }
-];
+    { image: '/swift.png' },
+]

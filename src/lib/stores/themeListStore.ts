@@ -24,7 +24,7 @@ const useThemeList = create<ThemeListState>((set) => ({
         try {
             const url = `/themes?depth=0`
             const res = await axiosURL.get(url)
-            const filteredData = res.data.map((item: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
+            const filteredData = res.data.map((item: any) => ({// eslint-disable-line @typescript-eslint/no-explicit-any
                 title: item.title,
                 description: item.description,
             }))
