@@ -4,6 +4,7 @@ import Container from '@/components/ui/container/Container'
 import { sponsorData } from '@/json/sponsor'
 import dynamic from 'next/dynamic'
 import MarqueeUI from '../ui/marquee/Marquee'
+import HomePageContainer from '@/components/ui/container/HomePageContainer'
 
 const ThemeList = dynamic(() => import('@/components/homePage/themeList'), {
     ssr: false,
@@ -12,9 +13,11 @@ const ThemeList = dynamic(() => import('@/components/homePage/themeList'), {
 const HomePage = () => {
     return (
         <>
-            <Container>
+            <HomePageContainer>
                 <MainBanner />
                 <MarqueeUI data={sponsorData} />
+            </HomePageContainer>
+            <Container>
                 <ThemeList />
                 <PreFooter />
             </Container>

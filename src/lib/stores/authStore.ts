@@ -24,7 +24,7 @@ type AuthStatePersist = Pick<AuthState, 'token'>
 
 const useAuth = create<AuthState>(
     (persist as any)(// eslint-disable-line @typescript-eslint/no-explicit-any
-        (set: any) => ({// eslint-disable-line @typescript-eslint/no-explicit-any
+        (set: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
             data: null,
             token: null,
             isAuthorized: false,
@@ -48,7 +48,7 @@ const useAuth = create<AuthState>(
                         isAuthorized: true,
                         isLoading: false,
                     })
-                } catch (error: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {// eslint-disable-line @typescript-eslint/no-explicit-any
                     const errorMessage =
                         error.response?.data?.message ||
                         error.message ||
