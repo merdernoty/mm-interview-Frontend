@@ -12,6 +12,7 @@ const HomePage = () => {
         <>
 
                 <MainBanner />
+            <MainBanner /><MainBanner /><MainBanner /><MainBanner /><MainBanner /><MainBanner /><MainBanner /><MainBanner /><MainBanner /><MainBanner /><MainBanner />
             <Container>
                 <ThemeList />
                 <PreFooter />

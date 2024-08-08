@@ -6,3 +6,20 @@ body {
     color: rgb(255, 255, 255) !important;
     background: #18181b !important;
 }
+::-webkit-scrollbar {
+    width: 6px; /* Ширина скроллбара */
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Цвет фона трека */
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: red; /* Цвет бегунка */
+    border-radius: 6px;
+    border: 3px solid #f0f0f0; /* Обводка бегунка, создающая эффект "врезанности" */
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9a88e0; /* Цвет бегунка при наведении */
+}
+
