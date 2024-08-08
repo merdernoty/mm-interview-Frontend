@@ -8,7 +8,7 @@ const quicksand = Quicksand({ subsets: ['latin'], weight: ['400', '700'] })
 const MainBanner = () => {
     return (
         <div className="flex justify-center items-center w-full">
-            <div className="h-[450px] w-[95%] flex rounded-md my-5 relative" style={{
+            <div className="h-[450px] w-[93%] flex rounded-md my-5 relative" style={{
                 backgroundImage: 'linear-gradient(100deg, #A28CF2, #B5A7EE)'
             }}>
                 <div className={`flex flex-col justify-between h-full p-4 pl-14 py-16 z-10 ${quicksand.className}`}>
