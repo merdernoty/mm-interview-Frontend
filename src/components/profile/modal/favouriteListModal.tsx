@@ -1,11 +1,28 @@
 import React, { useEffect, useRef } from 'react'
 
-const FavoriteModal = ({ isOpen, onClose, favoriteQuestions }) => {
-    const modalRef = useRef(null)
+export interface FavoriteQuestion {
+    question: string
+}
+
+interface FavoriteModalProps {
+    isOpen: boolean
+    onClose: () => void
+    favoriteQuestions: FavoriteQuestion[]
+}
+
+const FavoriteModal: React.FC<FavoriteModalProps> = ({
+    isOpen,
+    onClose,
+    favoriteQuestions,
+}) => {
+    const modalRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (modalRef.current && !modalRef.current.contains(event.target)) {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                modalRef.current &&
+                !modalRef.current.contains(event.target as Node)
+            ) {
                 onClose()
             }
         }
@@ -34,7 +51,7 @@ const FavoriteModal = ({ isOpen, onClose, favoriteQuestions }) => {
                 >
                     ✕
                 </button>
-                <h2 className="text-xl font-bold mb-4">Favorite Questions2</h2>
+                <h2 className="text-xl font-bold mb-4">Favorite Questions</h2>
                 <ul>
                     {favoriteQuestions.length > 0 ? (
                         favoriteQuestions.map((question, index) => (

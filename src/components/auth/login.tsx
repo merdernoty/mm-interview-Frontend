@@ -4,10 +4,11 @@ import React, { useState } from 'react'
 import useAuth from '@/lib/stores/authStore'
 import { Spinner } from '@chakra-ui/react'
 import { permanentRedirect } from 'next/navigation'
+import { useStore } from 'zustand'
 
 function LoginForm() {
     const { token, login, isLoading, error, isAuthorized, updateAuth } =
-        useAuth()
+        useStore(useAuth)
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
 

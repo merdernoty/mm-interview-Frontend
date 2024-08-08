@@ -13,7 +13,7 @@ import {
     Star,
     History,
 } from 'lucide-react'
-import InputForm from '@/components/ui/Input/InputForm'
+import InputForm from '../ui/Input/InputForm'
 import { useParams } from 'next/navigation'
 
 const SimpleHeader: React.FC = () => {
@@ -49,7 +49,7 @@ const SimpleHeader: React.FC = () => {
     return (
         <>
             {!isAuthorizing && (
-                <header className="sticky top-0 left-0 flex justify-between items-center p-4 bg-mainBlack text-white border-b-[1px] border-[#323232] px-9 py-2.5">
+                <header className="z-10 sticky top-0 left-0 flex justify-between items-center p-4 bg-mainBlack text-white border-b-[1px] border-[#323232] px-9 py-2.5">
                     <div
                         className={`"flex items-center w-1/5 transition-all duration-300 ${isSideBarOpened ? 'ml-[250px]' : 'ml-0'}`}
                     >

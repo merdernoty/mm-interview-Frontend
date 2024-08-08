@@ -4,6 +4,7 @@ import Link from 'next/link'
 import useAuth from '@/lib/stores/authStore'
 import { permanentRedirect } from 'next/navigation'
 import { Spinner } from '@chakra-ui/react'
+import { useStore } from 'zustand'
 
 const SignUpForm = () => {
     const [email, setEmail] = useState<string>('')
@@ -12,7 +13,7 @@ const SignUpForm = () => {
     const [repeatPassword, setRepeatPassword] = useState('')
     const [isButtonDisabled, setIsButtonDisabled] = useState(true)
     const { register, token, isLoading, error, isAuthorized, updateAuth } =
-        useAuth()
+        useStore(useAuth)
     React.useEffect(() => {
         if (!isAuthorized) {
             updateAuth()

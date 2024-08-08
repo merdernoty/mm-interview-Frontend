@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import { Star } from 'lucide-react'
 import FavoriteModal from '../modal/favouriteListModal'
+import { Question } from '@/lib/stores/userStore'
 
-const FavouriteBento = ({ data }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+interface FavouriteBentoProps {
+    favourite: Question[]
+}
+
+const FavouriteBento: React.FC<FavouriteBentoProps> = ({ favourite }) => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
     const handleClick = () => {
         setIsModalOpen(true)
@@ -12,6 +17,7 @@ const FavouriteBento = ({ data }) => {
     const handleClose = () => {
         setIsModalOpen(false)
     }
+
     return (
         <>
             <button
@@ -26,19 +32,16 @@ const FavouriteBento = ({ data }) => {
                 </div>
 
                 <div className="mt-4 ml-5">
-                    {data &&
-                    data.info &&
-                    data.info.favoriteQuestions &&
-                    data.info.favoriteQuestions.length > 0 ? (
+                    {favourite.length > 0 ? (
                         <>
-                            {data.info.favoriteQuestions[0] && (
+                            {favourite[0] && (
                                 <p className="text-grayViolet text-left truncate max-w-[200px]">
-                                    {data.info.favoriteQuestions[0].question}
+                                    {favourite[0].question}
                                 </p>
                             )}
-                            {data.info.favoriteQuestions[1] && (
+                            {favourite[1] && (
                                 <p className="text-grayViolet text-left truncate max-w-[150px]">
-                                    {data.info.favoriteQuestions[1].question}
+                                    {favourite[1].question}
                                 </p>
                             )}
                         </>
@@ -51,7 +54,7 @@ const FavouriteBento = ({ data }) => {
             <FavoriteModal
                 isOpen={isModalOpen}
                 onClose={handleClose}
-                favoriteQuestions={data?.info?.favoriteQuestions || []}
+                favoriteQuestions={favourite || []}
             />
         </>
     )

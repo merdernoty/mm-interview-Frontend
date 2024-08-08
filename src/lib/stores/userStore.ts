@@ -2,33 +2,33 @@ import { create } from 'zustand'
 import { axiosURL } from '../axios/axios'
 import axios from 'axios'
 
-interface Question {
+export interface Question {
     id: number
     question: string
     difficulty: string
 }
 
-interface UserInfo {
+export interface UserInfo {
     favoriteQuestions: Question[]
     completedQuestions: Question[]
     rewards: Reward[]
 }
 
-interface Reward {
+export interface Reward {
     id: number
     image: string
     title: string
     description: string
 }
 
-interface User {
+export interface User {
     id: number
     username: string
     email: string
     info: UserInfo
 }
 
-interface UserData {
+export interface UserData {
     data: User | null
     isLoading: boolean
     error: string | null

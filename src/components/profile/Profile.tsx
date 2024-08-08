@@ -1,23 +1,24 @@
 'use client'
+
 import React, { useEffect } from 'react'
+import { useParams } from 'next/navigation'
 import ActivityBento from '@/components/profile/bento/activityBento'
 import useUser from '@/lib/stores/userStore'
-import { useParams } from 'next/navigation'
-
 import ProfileLeftBento from './bento/profileLeftBento'
 import CompletedBento from './bento/completedBento'
 import FavouriteBento from './bento/favouriteBento'
 import PlaylistBento from './bento/playlistBento'
 import EnergyBento from './bento/energyBento'
 
-const Profile = () => {
+const Profile: React.FC = () => {
     const { data, fetchUserDataByToken, fetchUserDataByUsername } = useUser()
-    const { username } = useParams<{ username: string }>()
+    const params = useParams()
+    const { username } = params
 
     useEffect(() => {
         const currentPath = window.location.pathname
-        if (currentPath.startsWith('/user') && username) {
-            fetchUserDataByUsername(username)
+        if (currentPath.startsWith('/user') && username[0]) {
+            fetchUserDataByUsername(username[0])
         } else if (currentPath.startsWith('/me')) {
             fetchUserDataByToken()
         }
@@ -25,18 +26,27 @@ const Profile = () => {
 
     return (
         <div className="w-full flex gap-5 mt-5 mb-10">
-            <ProfileLeftBento />
+            <ProfileLeftBento
+                username={data?.username || ''}
+                email={data?.email || ''}
+            />
 
             <div className="flex-1 flex flex-col gap-5 h-[120px]">
                 <div className="flex-1 flex flex-col gap-5">
                     <div className="flex gap-5 flex-wrap lg:flex-nowrap">
-                        <FavouriteBento data={data} />
-                        <PlaylistBento data={data} />
+                        <FavouriteBento
+                            favourite={data?.info?.completedQuestions || []}
+                        />
+                        <PlaylistBento
+                            playlists={data?.info?.completedQuestions || []}
+                        />
                         <EnergyBento />
                     </div>
                 </div>
                 <ActivityBento />
-                <CompletedBento data={data} />
+                <CompletedBento
+                    questions={data?.info?.completedQuestions || []}
+                />
             </div>
         </div>
     )

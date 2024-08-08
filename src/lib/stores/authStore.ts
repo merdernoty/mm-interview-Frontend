@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import create from 'zustand'
+import { create } from 'zustand'
 import { persist, PersistOptions } from 'zustand/middleware'
 import { axiosURL } from '@/lib/axios/axios'
 
-interface AuthState {
+export interface AuthState {
     data: any | null // eslint-disable-line @typescript-eslint/no-explicit-any
     token: string | null
     isAuthorized: boolean
@@ -23,7 +23,7 @@ interface AuthState {
 type AuthStatePersist = Pick<AuthState, 'token'>
 
 const useAuth = create<AuthState>(
-    (persist as any)(  // eslint-disable-line @typescript-eslint/no-explicit-any
+    (persist as any)(// eslint-disable-line @typescript-eslint/no-explicit-any
         (set: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
             data: null,
             token: null,
@@ -48,7 +48,7 @@ const useAuth = create<AuthState>(
                         isAuthorized: true,
                         isLoading: false,
                     })
-                } catch (error: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {// eslint-disable-line @typescript-eslint/no-explicit-any
                     const errorMessage =
                         error.response?.data?.message ||
                         error.message ||
@@ -108,7 +108,7 @@ const useAuth = create<AuthState>(
                         localStorage.removeItem('token')
                         set({ isAuthorized: false, token: null, data: null })
                     }
-                } catch (error: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
+                } catch (error: any) {// eslint-disable-line @typescript-eslint/no-explicit-any
                     const errorMessage =
                         error.response?.data?.message ||
                         error.message ||
