@@ -10,8 +10,9 @@ const ThemeList = dynamic(() => import('@/components/homePage/themeList'), {
 const HomePage = () => {
     return (
         <>
-            <Container>
+
                 <MainBanner />
+            <Container>
                 <ThemeList />
                 <PreFooter />
             </Container>

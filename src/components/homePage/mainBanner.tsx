@@ -3,7 +3,8 @@ import Spline from '@splinetool/react-spline'
 
 const MainBanner = () => {
     return (
-        <div className="h-96 w-full flex rounded-md my-5" style={{
+        <div className="flex justify-center items-center w-full">
+        <div className="h-[500px] w-[95%] flex rounded-md my-5" style={{
             backgroundImage: 'linear-gradient(100deg, #A28CF2, #B5A7EE)'
         }}>
             <div className="flex-1 p-4">
@@ -24,6 +25,7 @@ const MainBanner = () => {
                     scene="https://prod.spline.design/x4WR8KAckagUmF9o/scene.splinecode"
                 />
             </div>
+        </div>
         </div>
     )
 }
