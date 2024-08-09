@@ -35,17 +35,17 @@ const Profile: React.FC = () => {
                 <div className="flex-1 flex flex-col gap-5">
                     <div className="flex gap-5 flex-wrap lg:flex-nowrap">
                         <FavouriteBento
-                            favourite={data?.info?.completedQuestions || []}
+                            favourite={data?.info?.favoriteQuestions || []}
                         />
                         <PlaylistBento
-                            playlists={data?.info?.completedQuestions || []}
+                            playlists={data?.info?.favoriteQuestions || []}
                         />
                         <EnergyBento />
                     </div>
                 </div>
                 <ActivityBento />
                 <CompletedBento
-                    questions={data?.info?.completedQuestions || []}
+                    questions={data?.info?.favoriteQuestions || []}
                 />
             </div>
         </div>

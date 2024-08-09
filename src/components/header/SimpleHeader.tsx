@@ -1,5 +1,5 @@
 'use client'
-import { useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import Link from 'next/link'
 import useAuthStore from '@/lib/stores/authStore'
 import usePathStore from '@/lib/stores/pathStore'
@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import InputForm from '../ui/Input/InputForm'
 import { useParams } from 'next/navigation'
+import Image from 'next/image'
 
 const SimpleHeader: React.FC = () => {
     const { isAuthorized, logout, updateAuth } = useAuthStore((state) => state)
@@ -56,32 +57,46 @@ const SimpleHeader: React.FC = () => {
                         <ul
                             className={`flex list-none m-0 p-0 mr-auto items-center transition-all duration-300 `}
                         >
-                            <li className="ml-5 relative">
-                                <button
-                                    className="icon-container block  p-1"
-                                    onClick={toggleSidebar}
-                                >
-                                    {isSideBarOpened ? (
-                                        <>
-                                            <PanelLeftClose
-                                                size={iconSize}
-                                                className="text-gray-200 cursor-pointer hover:text-white"
-                                            />
-                                            <div className="icon-hover"></div>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <PanelLeftOpen
-                                                size={iconSize}
-                                                className="text-gray-200 cursor-pointer hover:text-white"
-                                            />
-                                            <div className="icon-hover"></div>
-                                        </>
-                                    )}
-                                    <div className="h-full absolute inset-0 bg-gray-300 opacity-0 hover:opacity-10 transition-opacity duration-200 rounded-md"></div>
-                                </button>
-                            </li>
+                            {isChatting && (
+                                <li className="ml-5 relative">
+                                    <button
+                                        className="icon-container block  p-1"
+                                        onClick={toggleSidebar}
+                                    >
+                                        {isSideBarOpened ? (
+                                            <>
+                                                <PanelLeftClose
+                                                    size={iconSize}
+                                                    className="text-gray-200 cursor-pointer hover:text-white"
+                                                />
+                                                <div className="icon-hover"></div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <PanelLeftOpen
+                                                    size={iconSize}
+                                                    className="text-gray-200 cursor-pointer hover:text-white"
+                                                />
+                                                <div className="icon-hover"></div>
+                                            </>
+                                        )}
 
+                                        <div className="h-full absolute inset-0 bg-gray-300 opacity-0 hover:opacity-10 transition-opacity duration-200 rounded-md"></div>
+                                    </button>
+                                </li>
+                            )}
+                            <li className="ml-5 relative">
+                                <Link href="/">
+                                    <div className="flex items-center">
+                                        <Image
+                                            src="/logo.png"
+                                            alt="logo"
+                                            height={30}
+                                            width={30}
+                                        />
+                                    </div>
+                                </Link>
+                            </li>
                             {isChatting && (
                                 <>
                                     <li className="ml-5 relative">

@@ -15,8 +15,8 @@ const HomePage = () => {
         <>
             <HomePageContainer>
                 <MainBanner />
-                <MarqueeUI data={sponsorData} />
             </HomePageContainer>
+            <MarqueeUI data={sponsorData} />
             <Container>
                 <ThemeList />
                 <PreFooter />
