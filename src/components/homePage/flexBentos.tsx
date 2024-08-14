@@ -1,37 +1,69 @@
 import React from 'react';
+import Image from 'next/image';
+import Spline from '@splinetool/react-spline';
 
 const FlexBentos = () => {
     return (
-        <div className="flex flex-wrap p-6 min-h-[500px]">
-            {/* Левый блок */}
+        <div className="grid grid-cols-1 sm:grid-cols-5 grid-rows-10 sm:grid-rows-4 gap-6 p-6 ">
             <div
-                className="flex-1 sm:w-1/2 lg:w-1/3 bg-gradient-to-r from-blue-500 to-purple-500 text-white p-6 rounded-lg shadow-lg">
-                <h2 className="text-2xl font-bold mb-4">Left Block</h2>
-                <p>This is the left block with adaptive width.</p>
+                className="col-span-1 row-span-1 sm:col-start-1 sm:row-start-1 sm:row-end-2 lg:col-span-1 lg:row-span-2 bg-gray-800 text-white p-6 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold mb-4">More users each day</h2>
+                <p>123123 users</p>
+            </div>
+            <div
+                className="col-span-1 row-span-1 sm:col-span-1 sm:row-start-3 sm:row-end-5 bg-gray-800 text-white p-6 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold mb-4">Join us</h2>
+                <p>tg</p>
+                <p>ds</p>
+
+            </div>
+            <div
+                className="col-span-1 row-span-1 sm:col-start-2 sm:row-start-1 bg-gray-800 text-white p-6 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold mb-4">100 Themes</h2>
+            </div>
+            <div
+                className="col-span-1 row-span-1 sm:col-start-2 sm:row-start-2 bg-gray-800 text-white p-6 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold mb-4">777 interviews Base</h2>
+            </div>
+            <div
+                className="col-span-1 row-span-1 sm:col-start-3 sm:col-end-6 sm:row-start-1 sm:row-end-3 bg-gray-800 text-white p-6 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold mb-4">AI integration</h2>
+                <p>get experience of  real interview by talking to AI</p>
+            </div>
+            <div
+                className="col-span-1 row-span-2 sm:col-start-2 sm:col-end-5 sm:row-start-3 sm:row-end-5 bg-gray-800 text-white p-6 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold mb-4">Share</h2>
+                <p>share ur interview expirience All aspects of the interview will be <span className="text-[#DA8AF6]">anonymous</span>, and no identifying details will be shared</p>
             </div>
 
-            <div className="flex flex-col flex-1 w-full sm:w-1/2 lg:w-2/3 pl-6 space-y-6">
-                {/* Верхний правый блок */}
-                <div className="flex-1 bg-gradient-to-r from-green-500 to-teal-500 text-white p-6 rounded-lg shadow-lg">
-                    <h2 className="text-2xl font-bold mb-4">Right Block 1</h2>
-                    <p>This is the first right block with adaptive width.</p>
+            <div
+                className="col-span-1 row-span-1 sm:col-start-5 sm:row-start-3 bg-gray-800 text-white p-6 rounded-lg shadow-lg relative">
+                <div>
+                    <p className="text-2xl font-bold mb-4 z-10">
+                        Subscribe <br /> for only <span className="text-[#DA8AF6]">5$</span>
+                    </p>
                 </div>
-
-                {/* Нижний правый блок */}
-                <div
-                    className="flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-white p-6 rounded-lg shadow-lg">
-                    <h2 className="text-2xl font-bold mb-4">Right Block 2</h2>
-                    <p>This is the second right block with adaptive width.</p>
-                </div>
+                <Spline
+                    scene="https://prod.spline.design/HbZ45ogN6WiroZoB/scene.splinecode"
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '80%',
+                        transform: 'translate(-50%, -50%) scale(0.8)',
+                        width: '50%',
+                        height: '50%',
+                    }}
+                />
             </div>
+            <div
+                className="col-span-1 row-span-1 sm:col-start-5 sm:row-start-4 bg-gray-800 text-white p-6 rounded-lg shadow-lg relative">
 
-            {/* Новый контейнер для правого блока, чтобы он мог располагаться справа */}
-            <div className="w-full lg:w-2/3 flex flex-col lg:pl-6 space-y-6 mt-6 lg:mt-0">
-                <div
-                    className="flex-1 bg-gradient-to-r from-red-500 to-pink-500 text-white p-6 rounded-lg shadow-lg">
-                    <h2 className="text-2xl font-bold mb-4">Right Block</h2>
-                    <p>This block spans the width of the right side and aligns with the other blocks.</p>
+                <div>
+                    <p className="text-2xl font-bold mb-4 z-10">
+                        Get new <span className="text-[#DA8AF6]">habit</span> <br /> <span className="text-grayViolet text-lg">Crack the interview</span>
+                    </p>
                 </div>
+
             </div>
         </div>
     );

@@ -35,7 +35,7 @@ const MainBanner = () => {
 
                     </div>
                 </div>
-                <div className="absolute top-0 right-0 h-full w-full md:w-[50%]">
+                <div className="absolute top-0 right-0 z-1 h-full w-full md:w-[50%]">
                     <p className="absolute left-[50%] top-32 transform rotate-12 hidden md:block">
                         What is HashMap?
                     </p>
