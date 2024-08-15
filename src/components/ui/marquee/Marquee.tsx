@@ -21,7 +21,7 @@ function MarqueeUI({ data }: { data: ImageData[] }) {
                     />
                 ))}
             </Marquee>
-            <Marquee direction='right'>
+            <Marquee direction="right">
                 {data.map((item, index) => (
                     <Image
                         alt="photo"
