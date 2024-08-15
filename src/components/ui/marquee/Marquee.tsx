@@ -9,17 +9,30 @@ interface ImageData {
 
 function MarqueeUI({ data }: { data: ImageData[] }) {
     return (
-        <Marquee>
-            {data.map((item, index) => (
-                <Image
-                    alt="photo"
-                    src={item.image}
-                    key={index}
-                    width={100}
-                    height={100}
-                />
-            ))}
-        </Marquee>
+        <>
+            <Marquee>
+                {data.map((item, index) => (
+                    <Image
+                        alt="photo"
+                        src={item.image}
+                        key={index}
+                        width={80}
+                        height={80}
+                    />
+                ))}
+            </Marquee>
+            <Marquee direction='right'>
+                {data.map((item, index) => (
+                    <Image
+                        alt="photo"
+                        src={item.image}
+                        key={index}
+                        width={80}
+                        height={80}
+                    />
+                ))}
+            </Marquee>
+        </>
     )
 }
 

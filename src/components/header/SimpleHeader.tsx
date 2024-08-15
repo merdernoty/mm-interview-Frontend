@@ -167,18 +167,18 @@ const SimpleHeader: React.FC = () => {
                             ) : (
                                 <>
                                     <li className="mr-4 hidden md:block">
-                                        <Link href="/auth/login">
+                                        <a href="/auth/login">
                                             <button className="bg-[#3d3d3d] rounded-lg px-3 py-1 text-gray-300 transition-all duration-200 transform hover:scale-105 hover:bg-gradient-to-tr hover:text-indigo-50  hover:rounded-md hover:from-[#3d3d3d] hover:via-[#3d3d3d] hover:to-[#363636] whitespace-nowrap">
                                                 Sign in
                                             </button>
-                                        </Link>
+                                        </a>
                                     </li>
                                     <li>
-                                        <Link href="/auth/reg">
+                                        <a href="/auth/reg">
                                             <button className="bg-[#B7B9F7] rounded-lg px-3 py-1 text-[#2E2D2D] transition-all duration-200 transform hover:scale-105 hover:bg-gradient-to-tr hover:text-indigo-50  hover:rounded-md hover:from-[#9D9FEF] hover:via-[#A4A5FF] hover:to-[#8E90F4]  whitespace-nowrap">
                                                 Sign up
                                             </button>
-                                        </Link>
+                                        </a>
                                     </li>
                                 </>
                             )}
