@@ -16,11 +16,11 @@
 //     { image: '/swift.png' },
 // ]
 export const sponsorData = [
-    { image: '/apple.svg'},
-    { image: '/google.svg'},
-    { image: '/Microsoft.svg'},
-    { image: '/oracle.svg'},
-    { image: '/nextjs-13.svg'},
-    { image: '/chatgpt-3.svg'},
-    { image: '/react.svg'},
+    { image: '/apple.svg' },
+    { image: '/google.svg' },
+    { image: '/Microsoft.svg' },
+    { image: '/oracle.svg' },
+    { image: '/nextjs-13.svg' },
+    { image: '/chatgpt-3.svg' },
+    { image: '/react.svg' },
 ]
