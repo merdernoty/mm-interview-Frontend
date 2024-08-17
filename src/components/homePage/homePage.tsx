@@ -19,7 +19,7 @@ const HomePage = () => {
             </HomePageContainer>
             <MarqueeUI data={sponsorData} />
             <HomePageContainer>
-                <FlexBentos/>
+                <FlexBentos />
                 <ThemeList />
                 <PreFooter />
             </HomePageContainer>

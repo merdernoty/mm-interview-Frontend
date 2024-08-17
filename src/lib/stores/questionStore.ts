@@ -2,9 +2,9 @@ import { create } from 'zustand'
 import { axiosURL } from '@/lib/axios/axios'
 
 interface PathState {
-    data: any | null, // или точный тип вместо `any`
-    isLoading: boolean,
-    error: string | null,
+    data: any | null // или точный тип вместо `any`
+    isLoading: boolean
+    error: string | null
     getRandomQuestion: () => Promise<void>
     getRandomSubthemeQuestion: (subthemeId: number) => Promise<void>
 }
