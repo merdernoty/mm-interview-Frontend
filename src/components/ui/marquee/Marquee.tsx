@@ -9,30 +9,32 @@ interface ImageData {
 
 function MarqueeUI({ data }: { data: ImageData[] }) {
     return (
-        <>
-            <Marquee>
+        <div className="bg-zinc-200">
+            <Marquee pauseOnHover>
                 {data.map((item, index) => (
                     <Image
+                        className="mx-12"
                         alt="photo"
                         src={item.image}
                         key={index}
-                        width={80}
-                        height={80}
+                        width={150}
+                        height={150}
                     />
                 ))}
             </Marquee>
-            <Marquee direction="right">
+            <Marquee direction="right" pauseOnHover>
                 {data.map((item, index) => (
                     <Image
+                        className="mx-12"
                         alt="photo"
                         src={item.image}
                         key={index}
-                        width={80}
-                        height={80}
+                        width={150}
+                        height={150}
                     />
                 ))}
             </Marquee>
-        </>
+        </div>
     )
 }
 
