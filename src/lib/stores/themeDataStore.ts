@@ -29,6 +29,8 @@ interface RelatedTheme {
 interface Theme {
     id: number
     title: string
+    image: string
+    type: string
     description: string
     subthemes: Subtheme[]
     award: Award
@@ -40,12 +42,25 @@ interface ThemeData {
     isLoading: boolean
     error: string | null
     fetchThemeData: (themeTitle: string) => Promise<void>
+    fetchAllTheme: () => Promise<void>
 }
 
 const useThemeData = create<ThemeData>((set) => ({
     data: null,
     isLoading: false,
     error: null,
+
+    fetchAllTheme: async () => {
+        set({ isLoading: true, error: null })
+        try {
+            const res = await axiosURL.get('/themes')
+            set({ data: res.data, isLoading: false })
+        } catch (error) {
+            const errorMessage =
+                error instanceof Error ? error.message : 'Unknown error'
+            set({ error: errorMessage, isLoading: false })
+        }
+    },
 
     fetchThemeData: async (themeTitle: string) => {
         set({ isLoading: true, error: null })
